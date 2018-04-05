@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import './app/login/login.scss';
+* {
+    margin:0;
+    padding:0;
+    list-style:none;
+    vertical-align:baseline;
+}
+.app-sidenav
+{
+    width:250px;
+    position:fixed;
+    height:100%;
+    background-color:rgb(30, 40, 44);
+}
+.mat-toolbar
+{
+    background-color:#5B349F !important;
+}
+.mat-list-item
+{
+    color:#fff!important;
+    font:500 20px/32px Roboto,'Helvetica Neue',sans-serif;
+}
+.mat-sidenav-container
+{
+    height: 91vh;
+    background: #FFFFFF;
+}
+.blacktbird-logo
+{
+    padding-top:15px;
+    padding-bottom:5px;
+}
+.opcao
+{
+    padding-left: 50px;
+
+}
+.mat-list-item:hover
+{
+  padding-left:5px;
+  background-color:#3c8dbc!important;
+}
+.spacer 
+{
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+.matForm{
+    margin: 0 auto; 
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+.matInput{
+    width: 100%;
+    padding-top:10px;
+    padding-bottom:10px;
+}
