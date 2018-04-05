@@ -14,20 +14,22 @@ import {
   import {
     Observable
   } from 'rxjs/Observable';
-  
+
 @Injectable()
-export class LoginService{
+export class LoginService {
 
     usuarioAutenticado = new LoginModel();
-    public logado: any;
+    public logado: string;
 
     constructor() {}
 
    public  usuarioLogado() {
-         return this.logado;
+         return window.localStorage.getItem('usuarioLogado');
     }
    public logarUsuario(dadosUsuario) {
-       this.logado = true;
+       this.logado = 'true';
+       window.localStorage.setItem('usuarioLogado', 'true');
        this.usuarioAutenticado = dadosUsuario;
+
    }
 }

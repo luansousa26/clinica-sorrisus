@@ -8,7 +8,7 @@ import { LoginModel } from './login.model';
   styles: []
 })
 export class LoginComponent implements OnInit {
-  
+
   usuarioIncorretoNome: string;
   usuarioIncorreto = false;
   usuario = new LoginModel();
@@ -24,7 +24,11 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private loginService: LoginService) {
   }
 
-  ngOnInit() { 
+  ngOnInit() {
+    if (localStorage.getItem('usuarioLogado') === 'true') {
+      this.router.navigate(['home']);
+    }
+    this.usuarioIncorreto = false;
   }
 
   logarUsuario() {

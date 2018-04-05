@@ -10,6 +10,7 @@ import { MenuComponent } from './layout/navbar/menu.component';
 import { LoginComponent } from './login/login.component';
 import { Guardarota } from './guardarota/guardarota.component';
 import { LoginService } from './servicos/login.service';
+import { BarraCentralComponent } from './layout/barra-central/barra-central.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { LoginService } from './servicos/login.service';
     AppComponent,
     HomeComponent,
     MenuComponent,
-    LoginComponent
+    LoginComponent,
+    BarraCentralComponent
   ],
   imports: [
     BrowserModule,

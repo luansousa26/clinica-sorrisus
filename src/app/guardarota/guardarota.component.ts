@@ -13,7 +13,7 @@ export class Guardarota implements CanActivate  {
   constructor(private loginService: LoginService, private router: Router) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.loginService.usuarioLogado()) {
+    if (this.loginService.usuarioLogado() === 'true' ) {
       return true;
     }
     this.router.navigate(['login']);
