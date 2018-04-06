@@ -1,22 +1,22 @@
 <div>
 <mat-toolbar color="primary" class="mat-toolbar">
-    <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-    </button>
+    
     <!--<div class="blacktbird-logo">
         <a matTooltip="BlacktBird Luan Sousa" href="https://br.linkedin.com/in/luan2850">
             <img src="./assets/blacktbird.png" onmouseover="this.src='./assets/blacktbird2.png';" onmouseout="this.src='./assets/blacktbird.png';">
         </a>
-    </div>-->
-    <div class="menu-items">
-        <div>
-            <img src="assets/sorriso.png" class="imagem-tamanho">
-            <span>{{titulo}}</span>
-            <button (click)="deslogar()">Deslogar</button>
-                
-        </div>
-    
-</div>
+    </div>-->       
+        <mat-toolbar-row>
+                <button mat-icon-button (click)="sidenav.toggle()">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                    <span class="espaco"></span>
+                    <img src="assets/sorriso.png" class="imagem-tamanho">
+                    <span>{{titulo}}</span>
+                    <span class="btn-deslogar"></span>
+                    <button (click)="deslogar()">Deslogar</button>
+      </mat-toolbar-row>
+
 </mat-toolbar>
 <mat-sidenav-container class="mat-sidenav-container">
     
