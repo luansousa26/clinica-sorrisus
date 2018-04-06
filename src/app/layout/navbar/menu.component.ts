@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../servicos/login.service';
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
+  titulo = 'Clinica Sorrisus';
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
-  titulo = 'Clinica Sorrisus';
+
+  deslogar() {
+    this.loginService.deslogarUsuario();
+  }
 }

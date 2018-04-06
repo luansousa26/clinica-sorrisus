@@ -2,7 +2,7 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import '~bootstrap/dist/css/bootstrap.min.css';
-@import './app/login/login.scss';
+// @import './app/login/login.scss';
 @import './app/layout/barra-central/barra-central.scss';
 * {
     margin:0;
@@ -62,4 +62,11 @@
     width: 100%;
     padding-top:10px;
     padding-bottom:10px;
+}
+.menu-items{
+    padding-left: 450px;
+}
+.imagem-tamanho{
+    width:50px;
+    height: 50px;
 }

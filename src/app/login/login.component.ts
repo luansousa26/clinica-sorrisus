@@ -5,7 +5,7 @@ import { LoginModel } from './login.model';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: []
+  styleUrls: ['login.scss']
 })
 export class LoginComponent implements OnInit {
 
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (localStorage.getItem('usuarioLogado') === 'true') {
+    if (window.sessionStorage.getItem('usuarioLogado') === 'true') {
       this.router.navigate(['home']);
     }
     this.usuarioIncorreto = false;

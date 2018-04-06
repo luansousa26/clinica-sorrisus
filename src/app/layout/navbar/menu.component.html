@@ -3,12 +3,20 @@
     <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
-    <div class="blacktbird-logo">
+    <!--<div class="blacktbird-logo">
         <a matTooltip="BlacktBird Luan Sousa" href="https://br.linkedin.com/in/luan2850">
             <img src="./assets/blacktbird.png" onmouseover="this.src='./assets/blacktbird2.png';" onmouseout="this.src='./assets/blacktbird.png';">
         </a>
-    </div>
-    <span>{{titulo}}</span>
+    </div>-->
+    <div class="menu-items">
+        <div>
+            <img src="assets/sorriso.png" class="imagem-tamanho">
+            <span>{{titulo}}</span>
+            <button (click)="deslogar()">Deslogar</button>
+                
+        </div>
+    
+</div>
 </mat-toolbar>
 <mat-sidenav-container class="mat-sidenav-container">
     

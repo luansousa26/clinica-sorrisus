@@ -14,6 +14,7 @@ import {
   import {
     Observable
   } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class LoginService {
@@ -21,15 +22,20 @@ export class LoginService {
     usuarioAutenticado = new LoginModel();
     public logado: string;
 
-    constructor() {}
+    constructor(private router: Router) {}
 
    public  usuarioLogado() {
-         return window.localStorage.getItem('usuarioLogado');
+         return window.sessionStorage.getItem('usuarioLogado');
     }
    public logarUsuario(dadosUsuario) {
        this.logado = 'true';
-       window.localStorage.setItem('usuarioLogado', 'true');
+       window.sessionStorage.setItem('usuarioLogado', 'true');
        this.usuarioAutenticado = dadosUsuario;
 
+   }
+   public deslogarUsuario() {
+    this.logado = 'false';
+    window.sessionStorage.setItem('usuarioLogado', 'false');
+    this.router.navigate(['']);
    }
 }
