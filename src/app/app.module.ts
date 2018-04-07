@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { Guardarota } from './guardarota/guardarota.component';
 import { LoginService } from './servicos/login.service';
 import { BarraCentralComponent } from './layout/barra-central/barra-central.component';
+import { InicialComponent } from './layout/inicial/inicial.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { BarraCentralComponent } from './layout/barra-central/barra-central.comp
     HomeComponent,
     MenuComponent,
     LoginComponent,
-    BarraCentralComponent
+    BarraCentralComponent,
+    InicialComponent
   ],
   imports: [
     BrowserModule,

@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (window.sessionStorage.getItem('usuarioLogado') === 'true') {
-      this.router.navigate(['home']);
+      this.router.navigate(['home/inicio']);
     }
     this.usuarioIncorreto = false;
   }
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         && Object.is(this.usuario.senha, this.usuariosCadastrados[i].senha)) {
         this.usuarioIncorreto = false;
         this.loginService.logarUsuario(this.usuario);
-        this.router.navigate(['home']);
+        this.router.navigate(['home/inicio']);
       } else {
         this.usuarioIncorretoNome = this.usuario.usuario;
         this.usuarioIncorreto = true;

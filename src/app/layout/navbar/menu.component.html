@@ -11,7 +11,7 @@
                 <mat-icon>menu</mat-icon>
             </button>
             <span class="espaco"></span>
-            <img src="assets/sorriso.png" class="imagem-tamanho">
+            <div class="imagem-tamanho"><i class="fa fa-user-md"></i></div>
             <span class="titulo-nav">{{titulo}}</span>
             <span class="btn-deslogar"></span>
             <button mat-button class="btn-btn-deslogar" (click)="deslogar()">Deslogar</button>
@@ -39,5 +39,6 @@
             </mat-nav-list>
         </mat-sidenav>
         <app-barra-central></app-barra-central>
+        <router-outlet></router-outlet>
     </mat-sidenav-container>
 </div>

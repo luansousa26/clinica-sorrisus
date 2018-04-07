@@ -8,16 +8,12 @@
     .barra-central {
     height: 500px;
     }
-    }
-    @media only screen and (max-width: 150px){
-        .titulo-ul{
-        height: 50px;
-         }
-        }
+}
 
 .titulo {
     padding-top: 60px;
     font-size: 25px;
+    padding-left: 40px;
     color: #fff;
     font-weight: bold;
 }
@@ -30,6 +26,7 @@ ul {
     padding-top: 70px;
     list-style: none;
     color: #fff;
+    padding-left:10px;
     
 }   
 li

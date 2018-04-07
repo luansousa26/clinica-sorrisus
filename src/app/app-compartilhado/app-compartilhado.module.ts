@@ -37,7 +37,7 @@ import{
   MatToolbarModule,
   MatTooltipModule
       } from '@angular/material';
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormGroup,ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -64,6 +64,7 @@ import { RouterModule } from '@angular/router';
   
   exports:
   [
+    AngularFontAwesomeModule,
     RouterModule,
     CdkTableModule,
     MatAutocompleteModule,
