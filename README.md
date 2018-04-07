@@ -1,7 +1,7 @@
 # clínica-sorrisus
 
 Projeto em Andamento.
-[[https://github.com/luansousa26/clinica-sorrisus/blob/master/src/assets/previaAndamento.PNG|alt=previaAndamento]]
+[[https://github.com/luansousa26/clinica-sorrisus/src/assets/previaAndamento.PNG|alt=previaAndamento]]
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
 
