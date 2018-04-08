@@ -1,14 +1,14 @@
-<div [hidden]="!usuarioIncorreto" class="alert alert-warning">
-  <strong>Usuário não encontrado!</strong> O usuário digitado {{usuarioIncorretoNome}} não existe na nossa base de dados.
-</div>
-<div class="wrapper">
-  <form class="form-signin">       
-    <h2 class="form-signin-heading login-alinhamento">Login</h2>
-    <input type="text" class="form-control" [(ngModel)]="usuario.usuario" name="usuario" (onChange)="usuarioIncorreto = true" placeholder="Usuário" required autofocus="" />
-    <input type="password" class="form-control" [(ngModel)]="usuario.senha" name="password" placeholder="Senha" required />      
-    <label class="checkbox">
-      <mat-slide-toggle value="remember-me" id="rememberMe" name="rememberMe">Lembrar</mat-slide-toggle>
-    </label>
-    <button class="btn btn-lg cor-botao btn-block" (click)="logarUsuario()" >Login</button>   
-  </form>
-</div>
+  <div [hidden]="!usuarioIncorreto" class="alert alert-warning">
+    <strong>Usuário não encontrado!</strong> O usuário digitado {{usuarioIncorretoNome}} não existe na nossa base de dados.
+  </div>
+  <div class="wrapper">
+    <form class="form-signin">       
+      <h2 class="form-signin-heading login-alinhamento">Login</h2>
+      <input type="text" class="form-control" [(ngModel)]="usuario.usuario" name="usuario" (onChange)="usuarioIncorreto = true" placeholder="Usuário" required autofocus="" />
+      <input type="password" class="form-control" [(ngModel)]="usuario.senha" name="password" placeholder="Senha" required />      
+      <label class="checkbox">
+        <mat-slide-toggle value="remember-me" id="rememberMe" name="rememberMe">Lembrar</mat-slide-toggle>
+      </label>
+      <button class="btn btn-lg cor-botao btn-block" (click)="logarUsuario()" >Login</button>   
+    </form>
+  </div>

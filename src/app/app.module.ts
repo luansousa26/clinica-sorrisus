@@ -12,6 +12,9 @@ import { Guardarota } from './guardarota/guardarota.component';
 import { LoginService } from './servicos/login.service';
 import { BarraCentralComponent } from './layout/barra-central/barra-central.component';
 import { InicialComponent } from './layout/inicial/inicial.component';
+import { PacienteComponent } from './modulos/paciente/paciente.component';
+import { FinanceiroComponent } from './modulos/financeiro/financeiro.component';
+import { CadastroComponent } from './modulos/paciente/cadastro/cadastro.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { InicialComponent } from './layout/inicial/inicial.component';
     MenuComponent,
     LoginComponent,
     BarraCentralComponent,
-    InicialComponent
+    InicialComponent,
+    PacienteComponent,
+    FinanceiroComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,

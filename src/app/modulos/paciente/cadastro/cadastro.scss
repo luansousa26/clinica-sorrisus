@@ -1,0 +1,26 @@
+.form{
+   padding-top:50px;
+   border: 1px solid rgba(0,0,0,0.1);
+   background: rgb(231, 233, 235);
+}
+.titulos{
+    font-size:15px;
+    font-weight: bold;
+}
+hr{
+    padding-left:25px;
+}
+.espaco-entrecampos{
+    padding-top:20px;
+}
+.espaco-label{
+    padding-top:3px;
+}
+.input-nome{
+    width: 400px;
+}
+@media only screen and (max-width: 520px){
+    .input-nome{
+        width: 250px;
+    }
+}
