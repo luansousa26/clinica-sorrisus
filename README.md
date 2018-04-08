@@ -2,6 +2,7 @@
 
 Projeto em Andamento.
 ![previaandamento](https://user-images.githubusercontent.com/33549496/38460106-df9b40b4-3a89-11e8-878e-8c411cf9688f.PNG)
+![capturar](https://user-images.githubusercontent.com/33549496/38473217-9adf95ae-3b62-11e8-87bf-1d120b2b1fd0.PNG)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
 
