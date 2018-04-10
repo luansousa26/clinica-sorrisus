@@ -34,29 +34,34 @@
     </div>
     <hr>
     <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
-        <label>CEP
-          <input type="text" class="form-control">
-        </label>
-      </div>
+      <label>CEP
+        <input type="text" matInput [(ngModel)]="paciente.endereco.cep" #cep="ngModel" name="cep" (focusout)="verificarCep()" placeholder="CEP"
+          maxlength="9" pattern="[0-9]{8}|[0-9]{5}-[0-9]{3}" class="form-control">
+        <mat-error *ngIf="cep.invalid">O CEP é inválido</mat-error>
+      </label>
+    </div>
     <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
-        <label>Logradouro
-          <input type="text" class="form-control input-nome">
-        </label>
-      </div>
-      <div class="col-md-2 col-sm-12 espaco-entrecampos" align="left">
-          <label>Número
-            <input type="text" class="form-control">
-          </label>
-        </div>
-      <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
-          <label>Bairro
-            <input type="text" class="form-control">
-          </label>
-        </div>
-        <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
-            <label>Estado
-              <input type="text" class="form-control">
-            </label>
-          </div>
+      <label>Logradouro
+        <input type="text" class="form-control input-nome" disabled>
+      </label>
+    </div>
+    <div class="col-md-2 col-sm-12 espaco-entrecampos" align="left">
+      <label>Número
+        <input type="text" class="form-control" disabled>
+      </label>
+    </div>
+    <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
+      <label>Bairro
+        <input type="text" class="form-control" disabled>
+      </label>
+    </div>
+    <div class="col-md-2 col-sm-2 espaco-entrecampos" align="left">
+      <label>Estado
+        <input type="text" class="form-control" disabled>
+      </label>
+    </div>
+    <div align="left">
+      <button type="button" class="btn btn-success">Success</button>
+    </div>
   </div>
 </div>
