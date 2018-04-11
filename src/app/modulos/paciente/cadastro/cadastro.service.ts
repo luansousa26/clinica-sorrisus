@@ -26,7 +26,7 @@ import {
     private urlCpf = 'http://geradorapp.com/api/v1/cpf/validate';
     private urlPost = 'http://demo4677424.mockable.io/usuarios/';
 
-    salvarUsuario(paciente: PacienteModel): Observable < EntityResponseType > {
+    salvarPaciente(paciente: PacienteModel): Observable < EntityResponseType > {
         return this.http.post < PacienteModel > (this.urlPost, paciente, {
             observe: 'response'
         });

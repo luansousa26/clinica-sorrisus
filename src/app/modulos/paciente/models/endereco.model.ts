@@ -8,4 +8,5 @@ export class EnderecoModel {
         unidade?: string;
         ibge?: number;
         gia?: number;
+        numero?: string;
 }

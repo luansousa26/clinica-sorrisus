@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { AppCompartilhadoModule} from './app-compartilhado/app-compartilhado.module';
+import { AppCompartilhadoModule } from './app-compartilhado/app-compartilhado.module';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './layout/navbar/menu.component';
 import { LoginComponent } from './login/login.component';
@@ -15,7 +15,7 @@ import { InicialComponent } from './layout/inicial/inicial.component';
 import { PacienteComponent } from './modulos/paciente/paciente.component';
 import { FinanceiroComponent } from './modulos/financeiro/financeiro.component';
 import { CadastroComponent } from './modulos/paciente/cadastro/cadastro.component';
-
+import { CadastroService } from './modulos/paciente/cadastro/cadastro.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { CadastroComponent } from './modulos/paciente/cadastro/cadastro.componen
   ],
   providers: [
     LoginService,
-    Guardarota],
+    Guardarota,
+    CadastroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
