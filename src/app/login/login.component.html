@@ -7,8 +7,8 @@
       <input type="text" class="form-control" [(ngModel)]="usuario.usuario" name="usuario" (onChange)="usuarioIncorreto = true" placeholder="Usuário" required autofocus="" />
       <input type="password" class="form-control" [(ngModel)]="usuario.senha" name="password" placeholder="Senha" required />      
       <label class="checkbox">
-        <mat-slide-toggle value="remember-me" id="rememberMe" name="rememberMe">Lembrar</mat-slide-toggle>
+        <mat-slide-toggle value="remember-me" id="rememberMe" name="rememberMe">Lembrar usuario e senha</mat-slide-toggle>
       </label>
-      <button class="btn btn-lg cor-botao btn-block" (click)="logarUsuario()" >Login</button>   
+      <button class="btn btn-lg cor-botao btn-block" (click)="logarUsuario()">Login</button>   
     </form>
   </div>
