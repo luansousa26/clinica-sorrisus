@@ -1,76 +1,77 @@
 <br/>
 <form #cadastroForm="ngForm">
-<div align="center">
-  <div class="form col-md-8 col-sm-12" align="left">
-    <div class="col-md-6 col-sm-12" align="left">
-      <span class="titulos">Dados Pessoais</span>
-    </div>
-    <hr>
-    <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
-      <label>Nome Completo
-        <input type="text" class="form-control input-nome">
-      </label>
-    </div>
-    <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
-      <label>Data de Nascimento
-        <input type="date" class="form-control">
-      </label>
-    </div>
-    <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
-      <label>Sexo
-        <section class="example-section">
-          <mat-checkbox class="example-margin">Masculino</mat-checkbox>
-          <mat-checkbox class="example-margin">Feminino</mat-checkbox>
-        </section>
-      </label>
-    </div>
-    <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
-      <label>CPF
-        <input type="text"  [(ngModel)]="paciente.cpf"  maxlength="14" #cpf="ngModel" name="cpf" (focusout)="verificarCpf()" placeholder="Cpf" pattern="[0-9]{11}|[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" class="form-control">
-        <mat-error *ngIf="cpf.invalid">O CPF é inválido</mat-error>
-     </label>
-    </div>
-    <br/>
-    <div class="col-md-6 col-sm-12" align="left">
-      <span class="titulos">Contato</span>
-    </div>
-    <hr>
-    <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
-      <label>CEP
-        <input type="text" matInput [(ngModel)]="paciente.endereco.cep" #cep="ngModel" name="cep" (focusout)="verificarCep()" placeholder="CEP"
-          maxlength="9" pattern="[0-9]{8}|[0-9]{5}-[0-9]{3}" class="form-control">
-        <mat-error *ngIf="cep.invalid">O CEP é inválido</mat-error>
-      </label>
-    </div>
-    <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
-      <label>Logradouro
-        <input type="text" [(ngModel)]="paciente.endereco.logradouro" name="logradouro"  class="form-control input-nome" disabled>
-      </label>
-    </div>
-    <div class="col-md-2 col-sm-12 espaco-entrecampos" align="left">
-      <label>Número
-        <input type="text" [(ngModel)]="paciente.endereco.numero" name="numero" class="form-control">
-      </label>
-    </div>
-    <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
-      <label>Bairro
-        <input type="text" [(ngModel)]="paciente.endereco.bairro" name="bairro"  class="form-control" disabled>
-      </label>
-    </div>
-    <div class="col-md-2 col-sm-2 espaco-entrecampos" align="left">
-      <label>Estado
-        <input type="text" [(ngModel)]="paciente.endereco.uf" name="estado" class="form-control" disabled>
-      </label>
-    </div>
-    <div class="col-md-8 col-sm-12 espaco-entrecampos">
+  <div align="center">
+    <div class="form col-md-8 col-sm-12" align="left">
+      <div class="col-md-6 col-sm-12" align="left">
+        <span class="titulos">Dados Pessoais</span>
+      </div>
+      <hr>
+      <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
+        <label>Nome Completo
+          <input type="text" class="form-control input-nome">
+        </label>
+      </div>
+      <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
+        <label>Data de Nascimento
+          <input type="date" class="form-control">
+        </label>
+      </div>
+      <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
+        <label>Sexo
+          <section class="example-section">
+            <mat-checkbox class="example-margin">Masculino</mat-checkbox>
+            <mat-checkbox class="example-margin">Feminino</mat-checkbox>
+          </section>
+        </label>
+      </div>
+      <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
+        <label>CPF
+          <input type="text" [(ngModel)]="paciente.cpf" maxlength="14" #cpf="ngModel" name="cpf" (focusout)="verificarCpf()" placeholder="Cpf"
+            pattern="[0-9]{11}|[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" class="form-control">
+          <mat-error *ngIf="cpf.invalid">O CPF é inválido</mat-error>
+        </label>
+      </div>
+      <br/>
+      <div class="col-md-6 col-sm-12" align="left">
+        <span class="titulos">Contato</span>
+      </div>
+      <hr>
+      <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
+        <label>CEP
+          <input type="text" [(ngModel)]="paciente.endereco.cep" #cep="ngModel" name="cep" (focusout)="verificarCep()" placeholder="CEP"
+            maxlength="9" pattern="[0-9]{8}|[0-9]{5}-[0-9]{3}" class="form-control">
+          <mat-error *ngIf="cep.invalid">O CEP é inválido</mat-error>
+        </label>
+      </div>
+      <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
+        <label>Logradouro
+          <input type="text" [(ngModel)]="paciente.endereco.logradouro" name="logradouro" class="form-control input-nome" disabled>
+        </label>
+      </div>
+      <div class="col-md-2 col-sm-12 espaco-entrecampos" align="left">
+        <label>Número
+          <input type="text" [(ngModel)]="paciente.endereco.numero" name="numero" class="form-control">
+        </label>
+      </div>
+      <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
+        <label>Bairro
+          <input type="text" [(ngModel)]="paciente.endereco.bairro" name="bairro" class="form-control" disabled>
+        </label>
+      </div>
+      <div class="col-md-2 col-sm-2 espaco-entrecampos" align="left">
+        <label>Estado
+          <input type="text" [(ngModel)]="paciente.endereco.uf" name="estado" class="form-control" disabled>
+        </label>
+      </div>
+      <div class="col-md-8 col-sm-12 espaco-entrecampos">
         <label>Complemento
-      <input type="text" [(ngModel)]="paciente.endereco.complemento" name="complemento" class="form-control">
-    </label>
+          <input type="text" [(ngModel)]="paciente.endereco.complemento" name="complemento" class="form-control">
+        </label>
+      </div>
+      <div class="col-md-2 col-sm-3 espaco-entrecampos">
+        <button type="button" [disabled]="cadastroForm.invalid" class="btn btn-success btn-block">Salvar</button>
+      </div>
+      <br/>
     </div>
-    <div class="col-md-2 col-sm-3 espaco-entrecampos">
-      <button type="button" [disabled]="cadastroForm.invalid"class="btn btn-success btn-block">Salvar</button>
-    </div>
-    <br/>
   </div>
-</div>
 </form>

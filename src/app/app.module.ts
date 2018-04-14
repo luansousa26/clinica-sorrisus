@@ -16,6 +16,8 @@ import { PacienteComponent } from './modulos/paciente/paciente.component';
 import { FinanceiroComponent } from './modulos/financeiro/financeiro.component';
 import { CadastroComponent } from './modulos/paciente/cadastro/cadastro.component';
 import { CadastroService } from './modulos/paciente/cadastro/cadastro.service';
+import { PesquisaComponent} from './modulos/paciente/pesquisa/pesquisa.component';
+import { PesquisaService } from './modulos/paciente/pesquisa/pesquisa.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { CadastroService } from './modulos/paciente/cadastro/cadastro.service';
     InicialComponent,
     PacienteComponent,
     FinanceiroComponent,
-    CadastroComponent
+    CadastroComponent,
+    PesquisaComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { CadastroService } from './modulos/paciente/cadastro/cadastro.service';
   providers: [
     LoginService,
     Guardarota,
-    CadastroService],
+    CadastroService,
+    PesquisaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
