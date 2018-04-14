@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   {
-    path: 'home',component: MenuComponent, canActivate: [Guardarota], children: [
+    path: 'home', component: MenuComponent, canActivate: [Guardarota], children: [
       { path: 'inicio', component: InicialComponent, canActivate: [Guardarota] },
       { path: 'pacientes', component: PacienteComponent, canActivate: [Guardarota] }
     ]
