@@ -34,7 +34,7 @@ export class CadastroComponent implements OnInit {
       alert('paciente Salvo!');
   }
   verificarCep() {
-      if (this.paciente.endereco.cep !== '') {
+      if (this.paciente.endereco.cep !== undefined) {
           if (this.paciente.endereco.cep.includes('-')) {
               const cepV = /\-/gi;
               this.paciente.endereco.cep = this.paciente.endereco.cep.replace(cepV, '');
