@@ -18,7 +18,7 @@ export class PesquisaService {
 
     constructor(private http: HttpClient) { }
 
-    private urlUsuarios = 'http://demo4677424.mockable.io/usuarios';
+    private urlUsuarios = 'https://demo4677424.mockable.io/usuarios';
 
     getUsuarios() {
         return this.http.get(`${this.urlUsuarios}`);
