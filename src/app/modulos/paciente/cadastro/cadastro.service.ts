@@ -23,8 +23,8 @@ import {
     constructor(private http: HttpClient) {}
 
     private urlCep = 'https://viacep.com.br/ws';
-    private urlCpf = 'http://geradorapp.com/api/v1/cpf/validate';
-    private urlPost = 'http://demo4677424.mockable.io/usuarios/';
+    private urlCpf = 'https://geradorapp.com/api/v1/cpf/validate';
+    private urlPost = 'https://demo4677424.mockable.io/usuarios/';
 
     salvarPaciente(paciente: PacienteModel): Observable < EntityResponseType > {
         return this.http.post < PacienteModel > (this.urlPost, paciente, {
