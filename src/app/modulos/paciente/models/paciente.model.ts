@@ -5,6 +5,7 @@ export class PacienteModel {
     dataNascimento?: any;
     sexo?: string;
     cpf?: any;
+    profissao?: string;
     endereco?: EnderecoModel;
     dadosClinicos?: DadosClinicosModel;
     telefoneResidencial: any;

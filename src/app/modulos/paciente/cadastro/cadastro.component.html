@@ -9,7 +9,7 @@
          <hr>
          <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
             <label>Nome Completo
-            <input type="text" placeholder="Luan Sousa" class="form-control input-nome">
+            <input type="text" placeholder="Luan Sousa" [(ngModel)]="paciente.nomeCompleto" name="nomeCompleto" class="form-control input-nome" required>
             </label>
          </div>
          <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
@@ -34,6 +34,11 @@
                <mat-error *ngIf="cpf.invalid">O CPF é inválido</mat-error>
             </label>
          </div>
+         <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
+          <label>Profissão
+          <input type="text" placeholder="Desenvolvedor" [(ngModel)]="paciente.profissao" name="nomeCompleto" class="form-control">
+          </label>
+       </div>
          <br/>
          <div class="col-md-6 col-sm-12" align="left">
             <span class="titulos">Contato</span>

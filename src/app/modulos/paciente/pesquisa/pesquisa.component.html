@@ -15,15 +15,8 @@
     
     <ng-container matColumnDef="nome">
       <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.nomeCompleto}} </mat-cell>
     </ng-container>
-
-    
-    <ng-container matColumnDef="idade">
-      <mat-header-cell *matHeaderCellDef> Idade </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.idade}} </mat-cell>
-    </ng-container>
-
     
     <ng-container matColumnDef="profissao">
       <mat-header-cell *matHeaderCellDef> Profissão </mat-header-cell>

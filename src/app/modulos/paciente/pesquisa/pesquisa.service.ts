@@ -18,7 +18,7 @@ export class PesquisaService {
 
     constructor(private http: HttpClient) { }
 
-    private urlUsuarios = 'https://demo4677424.mockable.io/usuarios';
+    private urlUsuarios = 'http://5aef8bf15139c80014f22900.mockapi.io/clinica-sorrisus/pacientes';
 
     getUsuarios() {
         return this.http.get(`${this.urlUsuarios}`);

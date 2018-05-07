@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { PesquisaService } from './pesquisa.service';
+import { PacienteModel } from '../models/paciente.model';
 
 @Component({
   selector: 'app-pesquisa',
@@ -8,19 +9,19 @@ import { PesquisaService } from './pesquisa.service';
   styles: []
 })
 export class PesquisaComponent {
-  elementos : Elementos[] = [];
+  elementos : PacienteModel[] = [];
   dataSource : any;
   constructor(private pesquisaService :PesquisaService){
      this.getUsuarios();
   }
 
   getUsuarios() {
-    this.pesquisaService.getUsuarios().subscribe((usuarios) => {
-      this.elementos = usuarios['usuarios'];
+    this.pesquisaService.getUsuarios().subscribe((usuarios : PacienteModel[]) => {
+      this.elementos = usuarios;
       this.dataSource = new MatTableDataSource(this.elementos);
     })
   }
-  displayedColumns = ['id', 'nome', 'idade', 'profissao'];
+  displayedColumns = ['id', 'nome', 'profissao'];
   
 
   applyFilter(filterValue: string) {
@@ -28,10 +29,4 @@ export class PesquisaComponent {
     filterValue = filterValue.toLowerCase(); 
     this.dataSource.filter = filterValue;
   }
-}
-export interface Elementos {
-  id?: number;
-  nome?: string;
-  idade?: number;
-  profissao?: string;
 }
