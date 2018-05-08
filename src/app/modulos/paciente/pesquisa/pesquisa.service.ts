@@ -18,7 +18,7 @@ export class PesquisaService {
 
     constructor(private http: HttpClient) { }
 
-    private urlUsuarios = 'http://5aef8bf15139c80014f22900.mockapi.io/clinica-sorrisus/pacientes';
+    private urlUsuarios = 'https://5aef8bf15139c80014f22900.mockapi.io/clinica-sorrisus/pacientes';
 
     getUsuarios() {
         return this.http.get(`${this.urlUsuarios}`);
