@@ -1,7 +1,7 @@
   <div [hidden]="!usuarioIncorreto" class="alert alert-warning">
     <strong>Usuário não encontrado!</strong> O usuário digitado {{usuarioIncorretoNome}} não existe na nossa base de dados.
   </div>
-  <div class="wrapper">
+  <div [@container]="currentState" class="wrapper">
     <form class="form-signin">       
       <h2 class="form-signin-heading login-alinhamento">Login</h2>
       <input type="text" class="form-control" [(ngModel)]="usuario.usuario" name="usuario" (onChange)="usuarioIncorreto = true" placeholder="Usuário" required autofocus="" />
