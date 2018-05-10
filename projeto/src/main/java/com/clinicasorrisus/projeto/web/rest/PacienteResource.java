@@ -1,10 +1,12 @@
 package com.clinicasorrisus.projeto.web.rest;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import com.clinicasorrisus.projeto.service.PacienteService;
+import com.clinicasorrisus.projeto.service.dto.PacienteDTO;
 import com.codahale.metrics.annotation.Timed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 
 
+
 @RestController
 @RequestMapping("/api")
 public class PacienteResource {
@@ -32,7 +35,7 @@ public class PacienteResource {
 	 
 	@PostMapping("/salvar-pacientes")
 	@Timed
-	public ResponseEntity<PacienteDTO> criar(@Valid @RequestBody PacienteDTO pacienteDTO) throws URISyntaxException{
+	public ResponseEntity<PacienteDTO> criar(@Valid @RequestBody PacienteDTO pacienteDTO) throws URISyntaxException {
 		
 		PacienteDTO savePaciente = pacienteService.save(pacienteDTO);
 		return ResponseEntity.created(new URI("/api/salvar-pacientes/" + savePaciente.getId()))
