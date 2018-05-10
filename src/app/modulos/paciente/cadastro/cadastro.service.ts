@@ -24,7 +24,7 @@ import {
 
     private urlCep = 'https://viacep.com.br/ws';
     private urlCpf = 'https://geradorapp.com/api/v1/cpf/validate';// site está fora.
-    private urlPost = 'http://5aef8bf15139c80014f22900.mockapi.io/clinica-sorrisus/pacientes';
+    private urlPost = 'https://5aef8bf15139c80014f22900.mockapi.io/clinica-sorrisus/pacientes';
 
     salvarPaciente(paciente: PacienteModel): Observable < EntityResponseType > {
         return this.http.post < PacienteModel > (this.urlPost, paciente, {
