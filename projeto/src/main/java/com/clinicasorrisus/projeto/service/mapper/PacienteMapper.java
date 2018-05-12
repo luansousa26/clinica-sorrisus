@@ -1,5 +1,6 @@
 package com.clinicasorrisus.projeto.service.mapper;
 import com.clinicasorrisus.projeto.service.dto.PacienteDTO;
+
 import com.clinicasorrisus.projeto.domain.Paciente;
 import org.mapstruct.Mapper;
 

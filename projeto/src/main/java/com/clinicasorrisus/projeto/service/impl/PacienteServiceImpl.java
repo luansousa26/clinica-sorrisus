@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.clinicasorrisus.projeto.domain.Paciente;
 import com.clinicasorrisus.projeto.repository.PacienteRepository;
@@ -12,6 +15,9 @@ import com.clinicasorrisus.projeto.service.PacienteService;
 import com.clinicasorrisus.projeto.service.dto.PacienteDTO;
 import com.clinicasorrisus.projeto.service.mapper.PacienteMapper;
 
+
+@Service
+@Component
 public class PacienteServiceImpl implements PacienteService {
 	
 	@Autowired
@@ -20,17 +26,10 @@ public class PacienteServiceImpl implements PacienteService {
 	@Autowired
 	PacienteMapper pacienteMapper;
 	
-    public PacienteServiceImpl(PacienteRepository pacienteRepository, PacienteMapper pacienteMapper) {
-	        this.pacienteRepository = pacienteRepository;
-	        this.pacienteMapper = pacienteMapper;
-	  }
 	  
 	@Override
 	public PacienteDTO save(PacienteDTO pacienteDTO) {
-		
-		Paciente paciente = pacienteMapper.toEntity(pacienteDTO);
-		paciente = pacienteRepository.save(paciente);
-		return pacienteMapper.toDto(paciente);
+		return pacienteMapper.toDto(pacienteRepository.save(pacienteMapper.toEntity(pacienteDTO)));
 	}
 
 	@Override
@@ -39,8 +38,7 @@ public class PacienteServiceImpl implements PacienteService {
 		return pacienteRepository.findAll()
 				.stream()
 				.map(pacienteMapper :: toDto)
-				.collect(Collectors.toCollection(LinkedList :: new))
-				;
+				.collect(Collectors.toCollection(LinkedList :: new));
 	}
 
 	@Override

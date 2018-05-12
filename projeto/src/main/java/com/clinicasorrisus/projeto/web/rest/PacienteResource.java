@@ -24,7 +24,7 @@ import org.springframework.http.ResponseEntity;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/pacientes")
 public class PacienteResource {
 	
 	  private final PacienteService pacienteService;
@@ -33,15 +33,27 @@ public class PacienteResource {
 		 this.pacienteService = pacienteService;
 	 }
 	 
-	@PostMapping("/salvar-pacientes")
+	@PostMapping()
 	@Timed
 	public ResponseEntity<PacienteDTO> criar(@Valid @RequestBody PacienteDTO pacienteDTO) throws URISyntaxException {
-		
-		PacienteDTO savePaciente = pacienteService.save(pacienteDTO);
-		return ResponseEntity.created(new URI("/api/salvar-pacientes/" + savePaciente.getId()))
-	            .headers(HeaderUtil.createEntityCreationAlert("Paciente", savePaciente.getId().toString()))
-	            .body(savePaciente);
+		return ResponseEntity.ok().body(pacienteService.save(pacienteDTO));
 	}
 	
+	@GetMapping()
+	@Timed
+	public ResponseEntity<List<PacienteDTO>> getTodosPacientes() {
+		return ResponseEntity.ok().body(pacienteService.findAll());
+	}
+	
+	@PutMapping()
+	@Timed
+	public ResponseEntity<PacienteDTO> atualizar(@Valid @RequestBody PacienteDTO pacienteDTO) throws URISyntaxException {
+		
+		if(pacienteDTO.getId() == null) {
+			return criar(pacienteDTO);
+		}
+		
+		return ResponseEntity.ok().body(pacienteService.save(pacienteDTO));
+	}
 
 }
