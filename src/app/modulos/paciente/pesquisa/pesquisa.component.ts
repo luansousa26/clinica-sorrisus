@@ -11,6 +11,7 @@ import { PacienteModel } from '../models/paciente.model';
 export class PesquisaComponent {
   elementos: PacienteModel[] = [];
   dataSource: any;
+  arrayTemp: PacienteModel[] = [];
 
   displayedColumns = ['id', 'nome', 'profissao'];
   constructor(private pesquisaService: PesquisaService) {
@@ -20,7 +21,14 @@ export class PesquisaComponent {
   getUsuarios() {
     this.pesquisaService.getUsuarios().subscribe((usuarios: PacienteModel[]) => {
       this.elementos = usuarios;
-      this.dataSource = new MatTableDataSource(this.elementos);
+      for(const valores in this.elementos) {
+         const paciente = new PacienteModel();
+         paciente.id = this.elementos[valores].id;
+         paciente.nomeCompleto = this.elementos[valores].nomeCompleto;
+         paciente.profissao = this.elementos[valores].profissao;
+         this.arrayTemp.push(paciente);
+      }
+      this.dataSource = new MatTableDataSource(this.arrayTemp);
     });
   }
 
