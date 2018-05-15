@@ -13,9 +13,11 @@ import {
 import {
     Observable
 } from 'rxjs/Observable';
+import { PacienteModel } from '../models/paciente.model';
 @Injectable()
 export class PesquisaService {
 
+    paciente = new PacienteModel();
     constructor(private http: HttpClient) { }
 
     private urlUsuarios = 'https://5aef8bf15139c80014f22900.mockapi.io/clinica-sorrisus/pacientes';

@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
-@Component({
-  selector: 'app-paciente',
-  templateUrl: './paciente.component.html',
-  styleUrls: ['paciente.scss']
-})
-export class PacienteComponent implements OnInit {
+  @Component({
+    selector: 'app-paciente',
+    templateUrl: './paciente.component.html',
+    styleUrls: ['paciente.scss']
+  })
+  export class PacienteComponent implements OnInit {
+    
+    index = 0;
+    constructor() { }
 
-  constructor() { }
+    ngOnInit() {
+    }
 
-  ngOnInit() {
+    liberarListagem() {
+    this.index = 2;
+    }
+
   }
-
-}
