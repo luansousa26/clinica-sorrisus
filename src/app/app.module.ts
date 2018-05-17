@@ -16,7 +16,7 @@ import { PacienteComponent } from './modulos/paciente/paciente.component';
 import { FinanceiroComponent } from './modulos/financeiro/financeiro.component';
 import { CadastroComponent } from './modulos/paciente/cadastro/cadastro.component';
 import { CadastroService } from './modulos/paciente/cadastro/cadastro.service';
-import { PesquisaComponent} from './modulos/paciente/pesquisa/pesquisa.component';
+import { PesquisaComponent, PesquisaModalComponent} from './modulos/paciente/pesquisa/pesquisa.component';
 import { PesquisaService } from './modulos/paciente/pesquisa/pesquisa.service';
 
 @NgModule({
@@ -30,7 +30,8 @@ import { PesquisaService } from './modulos/paciente/pesquisa/pesquisa.service';
     PacienteComponent,
     FinanceiroComponent,
     CadastroComponent,
-    PesquisaComponent
+    PesquisaComponent,
+    PesquisaModalComponent
   ],
   imports: [
     BrowserModule,
