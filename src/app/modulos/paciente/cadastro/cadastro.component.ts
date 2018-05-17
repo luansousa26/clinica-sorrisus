@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PacienteModel } from './../models/paciente.model';
 import { EnderecoModel } from '../models/endereco.model';
 import { CadastroService } from './cadastro.service';
 import { DadosClinicosModel } from '../models/dados-clinicos.model';
+import { MatSnackBar } from '@angular/material';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'app-cadastro',
@@ -12,16 +14,12 @@ import { DadosClinicosModel } from '../models/dados-clinicos.model';
 export class CadastroComponent implements OnInit {
 
     paciente: PacienteModel;
-    str1 = '60a96f';
-    str2 = '3c8ac5a0cbb277';
-    str3 = '5gpolldsc999s02';
-    str4 = 'bf4ef3a42df0';
-    token = '90oop033c11120339www211';
     retorno: any;
     postRetorno: any;
     flagMedicamento: boolean;
+    @ViewChild('cadastroForm') cadastroForm : NgForm;
 
-    constructor(private cadastroService: CadastroService) { }
+    constructor(private cadastroService: CadastroService,public snackBar: MatSnackBar) { }
 
     ngOnInit() {
         this.paciente = new PacienteModel();
@@ -32,9 +30,11 @@ export class CadastroComponent implements OnInit {
     salvarDados() {
         this.cadastroService.salvarPaciente(this.paciente).subscribe(resposta => {
             this.postRetorno = resposta;
+            this.cadastroForm.resetForm();
         });
-        alert('paciente Salvo!');
-        console.log(this.paciente);
+        this.snackBar.open('Paciente Salvo com Sucesso!',' :D', {
+            duration: 5000,
+          });
     }
     verificarCep() {
         if (this.paciente.endereco.cep !== undefined) {
@@ -52,25 +52,7 @@ export class CadastroComponent implements OnInit {
         }
     }
     verificarCpf() {
-        this.token = this.str1 + this.str2 + this.str4;
-        if (this.paciente.cpf !== '') {
-            if (this.paciente.cpf.includes('.')) {
-                const cpfV = /\./gi;
-                this.paciente.cpf = this.paciente.cpf.replace(cpfV, '');
-                this.paciente.cpf = this.paciente.cpf.replace('-', '');
-            }
-            if (this.paciente.cpf.length > 10) {
-                this.cadastroService.getValidarCpf(this.paciente.cpf, this.token).subscribe(resultado => {
-                    this.retorno = resultado;
-                    if (this.retorno.status === '1') {
-                        this.paciente.cpf = this.retorno.data.number_formatted;
-                    } else {
-                        this.paciente.cpf = '';
-                    }
-                });
-            }
         }
-    }
     verificaFlags(flag) {
         switch (flag.id) {
             case 'flagMedicamentoSim':

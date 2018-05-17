@@ -14,15 +14,15 @@
          </div>
          <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
             <label>Data de Nascimento *
-            <input type="date" class="form-control" required>
+            <input type="date" [(ngModel)]="paciente.dataNascimento" class="form-control" required>
             </label>
          </div>
          <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
             <label>
                Sexo
                <mat-radio-group>
-                  <mat-radio-button id="flagMasculino" #flagMasculino (click)="verificaFlags(flagMasculino)" value="M">Masculino</mat-radio-button><br/>
-                  <mat-radio-button id="flagFeminino" #flagFeminino (click)="verificaFlags(flagFeminino)" value="F">Feminino</mat-radio-button>
+                  <mat-radio-button id="flagMasculino"[(ngModel)]="paciente.sexo" #flagMasculino (click)="verificaFlags(flagMasculino)" value="M">Masculino</mat-radio-button><br/>
+                  <mat-radio-button id="flagFeminino" [(ngModel)]="paciente.sexo" #flagFeminino (click)="verificaFlags(flagFeminino)" value="F">Feminino</mat-radio-button>
                 </mat-radio-group>
             </label>
          </div>
