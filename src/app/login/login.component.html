@@ -3,8 +3,9 @@
   </div>
   <div [@container]="currentState" class="wrapper">
     <form class="form-signin">       
+      <img src="assets/dentista.png">
       <h2 class="form-signin-heading login-alinhamento">Login</h2>
-      <input type="text" class="form-control" [(ngModel)]="usuario.usuario" name="usuario" (onChange)="usuarioIncorreto = true" placeholder="Usuário" required autofocus="" />
+      <input type="text" class="form-control" [(ngModel)]="usuario.usuario" name="usuario" (onChange)="usuarioIncorreto = true" placeholder="Usuário" required autofocus="" /><br/>
       <input type="password" class="form-control" [(ngModel)]="usuario.senha" name="password" placeholder="Senha" required />      
       <label class="checkbox">
         <mat-slide-toggle value="remember-me" id="rememberMe" name="rememberMe">Lembrar usuario e senha</mat-slide-toggle>

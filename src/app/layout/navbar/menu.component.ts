@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
   }
 
   deslogar() {
-    this.snackBar.open('Deslogando','...', {
+    this.snackBar.open('Saindo','...', {
       duration: 2000,
     });
     this.loginService.deslogarUsuario();
