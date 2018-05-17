@@ -10,15 +10,23 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
   templateUrl: './pesquisa.component.html',
   styles: []
 })
-export class PesquisaComponent {
+export class PesquisaComponent implements OnInit {
+
   elementos: PacienteModel[] = [];
   dataSource: any;
   arrayTemp: PacienteModel[] = [];
-  @Output() liberarLista = new EventEmitter();
 
   displayedColumns = ['id', 'nome', 'profissao'];
-  constructor(private pesquisaService: PesquisaService) {
+  constructor(private pesquisaService: PesquisaService,
+              public dialog: MatDialog) {
+  }
+  ngOnInit() {
     this.getUsuarios();
+  }
+  openDialog() {
+    let dialogRef = this.dialog.open(PesquisaModalComponent, {
+      width: '250px'
+    });
   }
 
   getUsuarios() {
@@ -39,6 +47,7 @@ export class PesquisaComponent {
     for (const paciente in this.elementos) {
       if (Object.is(this.elementos[paciente].id, linha.id)) {
         this.pesquisaService.paciente = this.elementos[paciente];
+        this.openDialog();
         break;
       }
     }
@@ -57,4 +66,8 @@ export class PesquisaComponent {
   styles: []
 })
 export class PesquisaModalComponent {
+
+  constructor(public dialogRef: MatDialogRef<PesquisaModalComponent>) {
+
+  }
 }

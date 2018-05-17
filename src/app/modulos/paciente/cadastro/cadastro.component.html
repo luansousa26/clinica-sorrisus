@@ -8,13 +8,13 @@
          </div>
          <hr>
          <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
-            <label>Nome Completo
+            <label>Nome Completo *
             <input type="text" placeholder="Luan Sousa" [(ngModel)]="paciente.nomeCompleto" name="nomeCompleto" class="form-control input-nome" required>
             </label>
          </div>
          <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
-            <label>Data de Nascimento
-            <input type="date" class="form-control">
+            <label>Data de Nascimento *
+            <input type="date" class="form-control" required>
             </label>
          </div>
          <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
@@ -28,15 +28,15 @@
          </div>
          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
             <label>
-               CPF
+               CPF *
                <input type="text" [(ngModel)]="paciente.cpf" maxlength="14" #cpf="ngModel" name="cpf" (focusout)="verificarCpf()" placeholder="03719120088"
-               pattern="[0-9]{11}|[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" class="form-control">
+               pattern="[0-9]{11}|[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" class="form-control" required>
                <mat-error *ngIf="cpf.invalid">O CPF é inválido</mat-error>
             </label>
          </div>
          <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
-          <label>Profissão
-          <input type="text" placeholder="Desenvolvedor" [(ngModel)]="paciente.profissao" name="nomeCompleto" class="form-control">
+          <label>Profissão *
+          <input type="text" placeholder="Desenvolvedor" [(ngModel)]="paciente.profissao" name="nomeCompleto" class="form-control" required>
           </label>
        </div>
          <br/>
@@ -63,9 +63,9 @@
          </div>
          <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
             <label>
-               CEP
+               CEP *
                <input type="text" [(ngModel)]="paciente.endereco.cep" #cep="ngModel" name="cep" (focusout)="verificarCep()" placeholder="CEP"
-               maxlength="9" pattern="[0-9]{8}|[0-9]{5}-[0-9]{3}" class="form-control">
+               maxlength="9" pattern="[0-9]{8}|[0-9]{5}-[0-9]{3}" class="form-control" required>
                <mat-error *ngIf="cep.invalid">O CEP é inválido</mat-error>
             </label>
             <label>Logradouro
