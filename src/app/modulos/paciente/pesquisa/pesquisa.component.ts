@@ -25,7 +25,7 @@ export class PesquisaComponent implements OnInit {
   }
   openDialog() {
     let dialogRef = this.dialog.open(PesquisaModalComponent, {
-      width: '250px'
+      width: '400px'
     });
   }
 
