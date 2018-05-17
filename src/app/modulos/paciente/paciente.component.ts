@@ -7,14 +7,10 @@
   })
   export class PacienteComponent implements OnInit {
     
-    index = 0;
+
     constructor() { }
 
     ngOnInit() {
-    }
-
-    liberarListagem() {
-    this.index = 2;
     }
 
   }

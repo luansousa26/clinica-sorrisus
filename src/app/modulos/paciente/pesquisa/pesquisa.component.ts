@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material';
 import { PesquisaService } from './pesquisa.service';
 import { PacienteModel } from '../models/paciente.model';
 import { PacienteComponent } from '../paciente.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-pesquisa',
@@ -13,7 +14,6 @@ export class PesquisaComponent {
   elementos: PacienteModel[] = [];
   dataSource: any;
   arrayTemp: PacienteModel[] = [];
-  pacienteComp = new PacienteComponent();
   @Output() liberarLista = new EventEmitter();
 
   displayedColumns = ['id', 'nome', 'profissao'];
@@ -39,7 +39,6 @@ export class PesquisaComponent {
     for (const paciente in this.elementos) {
       if (Object.is(this.elementos[paciente].id, linha.id)) {
         this.pesquisaService.paciente = this.elementos[paciente];
-        this.pacienteComp.liberarListagem();
         break;
       }
     }
@@ -51,4 +50,11 @@ export class PesquisaComponent {
     filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
   }
+}
+@Component({
+  selector: 'app-pesquisa-modal',
+  templateUrl: './pesquisa-modal.component.html',
+  styles: []
+})
+export class PesquisaModalComponent {
 }
