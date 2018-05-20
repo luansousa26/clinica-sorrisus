@@ -20,7 +20,7 @@ export class CadastroComponent implements OnInit {
     situacaoCpf: boolean;
     @ViewChild('cadastroForm') cadastroForm : NgForm;
 
-    constructor(private cadastroService: CadastroService,public snackBar: MatSnackBar) { }
+    constructor(private cadastroService: CadastroService, public snackBar: MatSnackBar) { }
 
     ngOnInit() {
         this.paciente = new PacienteModel();
