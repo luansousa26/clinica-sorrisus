@@ -8,25 +8,24 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 @Component({
   selector: 'app-pesquisa',
   templateUrl: './pesquisa.component.html',
-  styles: []
+  styles: ['./../cadastro/cadastro.scss']
 })
 export class PesquisaComponent implements OnInit {
 
   elementos: PacienteModel[] = [];
   dataSource: any;
   arrayTemp: PacienteModel[] = [];
-
+  visualizarSideBar: boolean;
   displayedColumns = ['id', 'nome', 'profissao'];
-  constructor(private pesquisaService: PesquisaService,
-              public dialog: MatDialog) {
+  paciente: PacienteModel = new PacienteModel();
+  situacaoCpf: any;
+  constructor(private pesquisaService: PesquisaService) {
   }
   ngOnInit() {
     this.getUsuarios();
   }
   openDialog() {
-    let dialogRef = this.dialog.open(PesquisaModalComponent, {
-      width: '400px'
-    });
+    
   }
 
   getUsuarios() {
@@ -46,8 +45,9 @@ export class PesquisaComponent implements OnInit {
   linhaSelecionada(linha) {
     for (const paciente in this.elementos) {
       if (Object.is(this.elementos[paciente].id, linha.id)) {
-        this.pesquisaService.paciente = this.elementos[paciente];
-        this.openDialog();
+        this.paciente = this.elementos[paciente];
+        this.situacaoCpf = true;
+        this.visualizarSideBar = true;
         break;
       }
     }
@@ -59,15 +59,65 @@ export class PesquisaComponent implements OnInit {
     filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
   }
-}
-@Component({
-  selector: 'app-pesquisa-modal',
-  templateUrl: './pesquisa-modal.component.html',
-  styles: []
-})
-export class PesquisaModalComponent {
 
-  constructor(public dialogRef: MatDialogRef<PesquisaModalComponent>) {
+  // Valida se o CPF está correto
+  validarCpf(cpf: string) {
+    let soma = 0;
+    let resto;
 
-  }
+
+    // deixa apenas os numeros
+    cpf.replace(/[^0-9]+/g, '');
+
+    if (cpf === '') {
+        this.situacaoCpf = false;
+        return false;
+    }
+
+    // Primeiro digito
+    if (cpf === '00000000000' || cpf === '11111111111' || cpf === '22222222222' || cpf == '33333333333' ||
+     cpf === '44444444444' || cpf === '55555555555' ||
+     cpf === '66666666666' || cpf === '77777777777' ||
+     cpf === '88888888888' || cpf === '99999999999') {
+
+        this.situacaoCpf = false;
+        return false;
+
+    }
+    for (let i = 1; i <= 9; i++) {
+        soma = soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
+        resto = (soma * 10) % 11;
+    }
+
+    if ((resto === 10) || (resto === 11)) {
+        resto = 0;
+
+    }
+    if (resto !== parseInt(cpf.substring(9, 10))) {
+
+        this.situacaoCpf = false;
+        return false;
+    }
+
+    // Segundo digito
+    soma = 0;
+
+    for (let i = 1; i <= 10; i++) {
+        soma = soma + parseInt(cpf.substring(i - 1, i)) * (12 - i);
+    }
+    resto = (soma * 10) % 11;
+
+    if ((resto === 10) || (resto === 11)) {
+        resto = 0;
+        this.situacaoCpf = true;
+    }
+    if (resto !== parseInt(cpf.substring(10, 11))) {
+        this.situacaoCpf = false;
+        return false;
+    }
+
+    this.situacaoCpf = true;
+    return true;
 }
+}
+

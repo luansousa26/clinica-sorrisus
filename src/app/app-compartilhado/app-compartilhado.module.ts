@@ -37,6 +37,7 @@ import{
   MatToolbarModule,
   MatTooltipModule
       } from '@angular/material';
+import {SidebarModule} from 'primeng/sidebar';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormGroup,ReactiveFormsModule, FormsModule} from '@angular/forms';
@@ -45,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CdkTableModule } from '@angular/cdk/table';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { RouterModule } from '@angular/router';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   imports: [
@@ -68,6 +70,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     CdkTableModule,
     MatAutocompleteModule,
+    SidebarModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
@@ -83,6 +86,7 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     MatListModule,
     MatMenuModule,
+    DialogModule,
     MatNativeDateModule,
     MatPaginatorModule,
     MatProgressBarModule,
