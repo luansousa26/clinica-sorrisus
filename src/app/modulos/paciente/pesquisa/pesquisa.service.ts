@@ -25,7 +25,12 @@ export class PesquisaService {
     getUsuarios() {
         return this.http.get(`${this.urlUsuarios}`);
     }
-
+    updateUsuarios(idUsuario, pacienteAtualizado) {
+        return this.http.put(`${this.urlUsuarios}/${idUsuario}`, pacienteAtualizado);
+    }
+    deleteUsuarios(idUsuario) {
+        return this.http.delete(`${this.urlUsuarios}/${idUsuario}`);
+    }
     /* Abaixo segue o Json inserido no site mockable
     {
     "usuarios":[

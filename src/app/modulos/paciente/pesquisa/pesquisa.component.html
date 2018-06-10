@@ -29,31 +29,22 @@
 </div>
 
 <div *ngIf="visualizarSideBar">
-  <p-dialog header="Dados do Paciente" [closable]="true" [(visible)]="visualizarSideBar" [responsive]="true" [width]="500">
-    <form #cadastroForm="ngForm">
-        <div class="form col-md-8 col-sm-12" align="left">
-          <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
+  <p-dialog header="Dados do Paciente" [closable]="true" [(visible)]="visualizarSideBar" [responsive]="true" [width]="1000">
+    <form #pesquisaForm="ngForm">
+      <div class="form" align="left">
+        <div class="row">
+          <div class="col-md-3 col-sm-12" align="left">
             <label>Nome Completo *
-              <input type="text" placeholder="Luan Sousa" [(ngModel)]="paciente.nomeCompleto" name="nomeCompleto" class="form-control input-nome"
+              <input type="text" placeholder="Luan Sousa" [(ngModel)]="paciente.nomeCompleto" name="nomeCompleto" class="form-control"
                 required>
             </label>
           </div>
-          <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
+          <div class="col-md-3 col-sm-12" align="left">
             <label>Data de Nascimento *
               <input type="date" [(ngModel)]="paciente.dataNascimento" name="dataNascimento" class="form-control" required>
             </label>
           </div>
-          <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
-            <label>
-              Sexo
-              <mat-radio-group>
-                <mat-radio-button id="flagMasculino" #flagMasculino (click)="verificaFlags(flagMasculino)" value="M">Masculino</mat-radio-button>
-                <br/>
-                <mat-radio-button id="flagFeminino" #flagFeminino (click)="verificaFlags(flagFeminino)" value="F">Feminino</mat-radio-button>
-              </mat-radio-group>
-            </label>
-          </div>
-          <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
+          <div class="col-md-3 col-sm-12" align="left">
             <label>
               CPF *
               <input type="text" [(ngModel)]="paciente.cpf" maxlength="11" name="cpf" (focusout)="validarCpf(paciente.cpf)" placeholder="03719120088"
@@ -61,65 +52,82 @@
               <mat-error *ngIf="!situacaoCpf">O CPF é inválido</mat-error>
             </label>
           </div>
-          <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
-            <label>Profissão *
-              <input type="text" placeholder="Desenvolvedor" [(ngModel)]="paciente.profissao" name="profissao" class="form-control"
-                required>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
+            <label>
+              Sexo
+              <mat-radio-group>
+                <mat-radio-button id="flagMasculino" #flagMasculino (click)="verificaFlags(flagMasculino)" value="M">Masculino</mat-radio-button>
+                <mat-radio-button id="flagFeminino" #flagFeminino (click)="verificaFlags(flagFeminino)" value="F">Feminino</mat-radio-button>
+              </mat-radio-group>
             </label>
           </div>
-          <br/>
-          <div class="col-md-6 col-sm-12" align="left">
-            <span class="titulos">Contato</span>
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
+            <label>Profissão *
+              <input type="text" placeholder="Desenvolvedor" [(ngModel)]="paciente.profissao" name="profissao" class="form-control" required>
+            </label>
           </div>
-          <hr>
-            <div class="col-md-8 col-sm-12 espaco-entrecampos">
-              <label>Telefone Residencial
-                <input type="text" [(ngModel)]="paciente.telefoneResidencial" name="telefoneResidencial" placeholder="(11)4002-8922" class="form-control">
-              </label>
-            </div>
-          <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
-              <label>E-mail
-                <input type="text" [(ngModel)]="paciente.email" name="email" placeholder="luan26@uninove.edu.br" class="form-control">
-              </label>
-            </div>
-          <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
+        </div>
+        <br/>
+        <div class="col-md-6 col-sm-12" align="left">
+          <span class="titulos">Contato</span>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-3 col-sm-12 espaco-entrecampos">
+            <label>Telefone Residencial
+              <input type="text" [(ngModel)]="paciente.telefoneResidencial" name="telefoneResidencial" placeholder="(11)4002-8922" class="form-control">
+            </label>
+          </div>
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
+            <label>E-mail
+              <input type="text" [(ngModel)]="paciente.email" name="email" placeholder="luan26@uninove.edu.br" class="form-control">
+            </label>
+          </div>
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
             <label>
               CEP *
               <input type="text" [(ngModel)]="paciente.endereco.cep" #cep="ngModel" name="cep" (focusout)="verificarCep()" placeholder="CEP"
                 maxlength="9" pattern="[0-9]{8}|[0-9]{5}-[0-9]{3}" class="form-control" required>
               <mat-error *ngIf="cep.invalid">O CEP é inválido</mat-error>
             </label>
+          </div>
+          <div class="col-md-3 col-sm-12">
             <label>Logradouro
               <input type="text" [(ngModel)]="paciente.endereco.logradouro" name="logradouro" class="form-control input-nome" disabled>
             </label>
           </div>
-
-            <div class="col-md-5 col-sm-12 espaco-entrecampos" align="left">
-              <label>Número
-                <input type="text" [(ngModel)]="paciente.endereco.numero" placeholder="220A" name="numero" class="form-control">
-              </label>
-            </div>
-            <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
-              <label>Bairro
-                <input type="text" [(ngModel)]="paciente.endereco.bairro" name="bairro" class="form-control" disabled>
-              </label>
-            </div>
-            <div class="col-md-5 col-sm-12 espaco-entrecampos" align="left">
-              <label>Estado
-                <input type="text" [(ngModel)]="paciente.endereco.uf" name="estado" class="form-control" disabled>
-              </label>
-            </div>
-          <div class="col-md-12 col-sm-12 espaco-entrecampos">
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
+            <label>Número
+              <input type="text" [(ngModel)]="paciente.endereco.numero" placeholder="220A" name="numero" class="form-control">
+            </label>
+          </div>
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
+            <label>Bairro
+              <input type="text" [(ngModel)]="paciente.endereco.bairro" name="bairro" class="form-control" disabled>
+            </label>
+          </div>
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
+            <label>Estado
+              <input type="text" [(ngModel)]="paciente.endereco.uf" name="estado" class="form-control" disabled>
+            </label>
+          </div>
+          <div class="col-md-3 col-sm-12 espaco-entrecampos">
             <label>Complemento
               <input type="text" [(ngModel)]="paciente.endereco.complemento" placeholder="Bloco 30 Apto 22" name="complemento" class="form-control input-nome">
             </label>
           </div>
-          <br/>
-          <div class="col-md-6 col-sm-12" align="left">
-            <span class="titulos">Dados Adicionais</span>
-          </div>
-          <hr>
-          <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
+        </div>
+        <br/>
+        <div class="col-md-6 col-sm-12" align="left">
+          <span class="titulos">Dados Adicionais</span>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
             <label>
               Alergia
               <br/>
@@ -129,12 +137,12 @@
               </section>
             </label>
           </div>
-          <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
             <label>Qual(ais)?
               <input type="text" [(ngModel)]="paciente.dadosClinicos.alergia" name="alergia" class="form-control">
             </label>
           </div>
-          <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
             <label>
               Sensibilidade a algum medicamento?
               <br/>
@@ -145,13 +153,15 @@
               </mat-radio-group>
             </label>
           </div>
-          <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
             <label>Qual(ais)?
               <input [disabled]="!flagSensibilidadeSim._checked" [(ngModel)]="paciente.dadosClinicos.sensibilidade" name="sensibilidade"
                 type="text" class="form-control">
             </label>
           </div>
-          <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
+        </div>
+        <div class="row">
+          <div class="col-md-2 col-sm-12 espaco-entrecampos" align="left">
             <label>
               Sua pressão sanguínea é alta?
               <br/>
@@ -162,7 +172,7 @@
               </mat-radio-group>
             </label>
           </div>
-          <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
+          <div class="col-md-2 col-sm-12 espaco-entrecampos" align="left">
             <label>
               Está tomando algum medicamento?
               <br/>
@@ -173,13 +183,13 @@
               </mat-radio-group>
             </label>
           </div>
-          <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
             <label>Qual(ais)?
               <input [disabled]="!flagMedicamentoSim._checked" type="text" [(ngModel)]="paciente.dadosClinicos.medicamento" name="medicamento"
                 class="form-control">
             </label>
           </div>
-          <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
+          <div class="col-md-2 col-sm-12 espaco-entrecampos" align="left">
             <label>
               Tem algum problema de saúde?
               <br/>
@@ -190,14 +200,22 @@
               </mat-radio-group>
             </label>
           </div>
-          <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
+          <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
             <label>Qual(ais)?
               <input [disabled]="!flagProblemaSim._checked" type="text" [(ngModel)]="paciente.dadosClinicos.problemaSaude" name="problemaSaude"
                 class="form-control">
             </label>
           </div>
         </div>
+      </div>
     </form>
-    <button type="button" (click)="visualizarSideBar = false" class="btn btn-success btn-block">Salvar</button>
+    <div class="row">
+      <div class="col-md-3 col-sm-12">
+        <button type="button" [disabled]="pesquisaForm.invalid" (click)="atualizarPacientes()" class="btn btn-success btn-block">Atualizar</button>
+      </div>
+      <div class="col-md-3 col-sm-12">
+        <button type="button" (click)="deletarPacientes()" class="btn btn-danger btn-block">Deletar</button>
+      </div>
+    </div>
   </p-dialog>
 </div>
