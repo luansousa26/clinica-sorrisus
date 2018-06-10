@@ -21,8 +21,8 @@ export class PesquisaComponent implements OnInit {
   paciente: PacienteModel = new PacienteModel();
   situacaoCpf: any;
   constructor(private pesquisaService: PesquisaService,
-              public snackBar: MatSnackBar,
-              private cadastroService: CadastroService) {
+    public snackBar: MatSnackBar,
+    private cadastroService: CadastroService) {
   }
   ngOnInit() {
     this.getUsuarios();
@@ -32,6 +32,7 @@ export class PesquisaComponent implements OnInit {
   }
 
   getUsuarios() {
+    this.arrayTemp = [];
     this.pesquisaService.getUsuarios().subscribe((usuarios: PacienteModel[]) => {
       this.elementos = usuarios;
       for (const valores in this.elementos) {
@@ -68,13 +69,12 @@ export class PesquisaComponent implements OnInit {
     let soma = 0;
     let resto;
 
-
-    // deixa apenas os numeros
-    cpf.replace(/[^0-9]+/g, '');
-
     if (cpf === '') {
       this.situacaoCpf = false;
       return false;
+    } else {
+      // deixa apenas os numeros
+      cpf.replace(/[^0-9]+/g, '');
     }
 
     // Primeiro digito
@@ -124,37 +124,38 @@ export class PesquisaComponent implements OnInit {
   }
   verificarCep() {
     if (this.paciente.endereco.cep !== undefined) {
-        if (this.paciente.endereco.cep.includes('-')) {
-            const cepV = /\-/gi;
-            this.paciente.endereco.cep = this.paciente.endereco.cep.replace(cepV, '');
-        }
-        if (this.paciente.endereco.cep.length > 7) {
-            this.cadastroService
-                .getCep(this.paciente.endereco.cep)
-                .subscribe((endereco) => {
-                    this.paciente.endereco = endereco;
-                });
-        }
+      if (this.paciente.endereco.cep.includes('-')) {
+        const cepV = /\-/gi;
+        this.paciente.endereco.cep = this.paciente.endereco.cep.replace(cepV, '');
+      }
+      if (this.paciente.endereco.cep.length > 7) {
+        this.cadastroService
+          .getCep(this.paciente.endereco.cep)
+          .subscribe((endereco) => {
+            this.paciente.endereco = endereco;
+          });
+      }
     }
-}
+  }
   atualizarPacientes() {
     this.pesquisaService.updateUsuarios(this.paciente.id, this.paciente).subscribe((paciente) => {
-      this.snackBar.open('Paciente Atualizado com Sucesso!',' :D', {
+      this.snackBar.open('Paciente Atualizado com Sucesso!', ' :D', {
         duration: 5000,
       });
       this.visualizarSideBar = false;
-      this.ngOnInit();
+      this.getUsuarios();
     });
-   
+
   }
   deletarPacientes() {
     this.pesquisaService.deleteUsuarios(this.paciente.id).subscribe((paciente) => {
-      this.snackBar.open('Paciente Deletado com Sucesso!',' :D', {
+      this.snackBar.open('Paciente Deletado com Sucesso!', ' :D', {
         duration: 5000,
       });
       this.visualizarSideBar = false;
-      this.ngOnInit();
+      this.getUsuarios();
     });
+
   }
 }
 

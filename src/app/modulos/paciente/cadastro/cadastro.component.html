@@ -26,7 +26,7 @@
                 </mat-radio-group>
             </label>
          </div>
-         <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
+         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
             <label>
                CPF *
                <input type="text" [(ngModel)]="paciente.cpf" maxlength="11" name="cpf" (focusout)="validarCpf(paciente.cpf)" placeholder="03719120088"
@@ -164,7 +164,7 @@
             <input [disabled]="!flagProblemaSim._checked" type="text" [(ngModel)]="paciente.dadosClinicos.problemaSaude" name="problemaSaude" class="form-control">
             </label>
          </div>
-         <div class="col-md-2 col-sm-12 espaco-entrecampos">
+         <div class="col-md-4 col-sm-12 espaco-entrecampos">
             <button type="button" [disabled]="cadastroForm.invalid" (click)="salvarDados()" class="btn btn-success btn-block">Salvar</button>
          </div>
          <br/>

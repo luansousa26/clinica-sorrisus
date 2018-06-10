@@ -41,7 +41,8 @@ import { PesquisaService } from './modulos/paciente/pesquisa/pesquisa.service';
     LoginService,
     Guardarota,
     CadastroService,
-    PesquisaService],
+    PesquisaService,
+    PesquisaComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

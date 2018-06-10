@@ -5,6 +5,7 @@ import { CadastroService } from './cadastro.service';
 import { DadosClinicosModel } from '../models/dados-clinicos.model';
 import { MatSnackBar } from '@angular/material';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-cadastro',
@@ -20,7 +21,9 @@ export class CadastroComponent implements OnInit {
     situacaoCpf: boolean;
     @ViewChild('cadastroForm') cadastroForm : NgForm;
 
-    constructor(private cadastroService: CadastroService, public snackBar: MatSnackBar) { }
+    constructor(private cadastroService: CadastroService,
+                public snackBar: MatSnackBar,
+                private router: Router) { }
 
     ngOnInit() {
         this.paciente = new PacienteModel();
@@ -33,13 +36,12 @@ export class CadastroComponent implements OnInit {
     let soma = 0;
     let resto;
 
-
-    // deixa apenas os numeros
-    cpf.replace(/[^0-9]+/g, '');
-
     if (cpf === '') {
         this.situacaoCpf = false;
         return false;
+    } else {
+        // deixa apenas os numeros
+        cpf.replace(/[^0-9]+/g, '');
     }
 
     // Primeiro digito
@@ -92,10 +94,16 @@ export class CadastroComponent implements OnInit {
         this.cadastroService.salvarPaciente(this.paciente).subscribe(resposta => {
             this.postRetorno = resposta;
             this.cadastroForm.resetForm();
+            this.snackBar.open('Paciente Salvo com Sucesso!',' :D', {
+                duration: 5000,
+              });
+            this.router.navigate(['/home']);
+            setTimeout(() => {
+                this.router.navigate(['home/pacientes']);
+            }, 100);
+            
         });
-        this.snackBar.open('Paciente Salvo com Sucesso!',' :D', {
-            duration: 5000,
-          });
+        
     }
     verificarCep() {
         if (this.paciente.endereco.cep !== undefined) {
