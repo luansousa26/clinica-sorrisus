@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4 col-sm-1">
     </div>
-    <div class="col-md-2 col-sm-3 divs div1">
+    <div (click)="visualizarCalendario()" class="col-md-2 col-sm-3 divs div1">
       <div class="icon">
         <i class="fa fa-calendar"></i>
       </div>
@@ -19,4 +19,11 @@
       </div>
     </div>
   </div>
+  <div *ngIf="controlaCalendario">
+    <app-calendario></app-calendario>
+  </div>
+  <div *ngIf="controlaGrafico">
+      <app-grafico></app-grafico>
+    </div>
+
 </div>

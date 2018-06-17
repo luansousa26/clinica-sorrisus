@@ -7,9 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministrativoComponent implements OnInit {
 
+  controlaCalendario: boolean;
+  controlaGrafico: boolean;
   constructor() { }
 
   ngOnInit() {
   }
+  visualizarCalendario() {
+    if (this.controlaCalendario === true) {
+      this.controlaCalendario = false;
+    } else {
+      this.controlaGrafico = false;
+      this.controlaCalendario = true;
+    }
+  }
 
+
+  visualizarGrafico() {
+    if (this.controlaGrafico === true) {
+      this.controlaGrafico = false;
+    } else {
+      this.controlaCalendario = false;
+      this.controlaGrafico = true;
+    }
+  }
 }
