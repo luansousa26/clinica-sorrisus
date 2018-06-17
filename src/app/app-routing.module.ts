@@ -6,13 +6,15 @@ import { MenuComponent } from './layout/navbar/menu.component';
 import { Guardarota } from './guardarota/guardarota.component';
 import { InicialComponent } from './layout/inicial/inicial.component';
 import { PacienteComponent } from './modulos/paciente/paciente.component';
+import { AdministrativoComponent } from './modulos/administrativo/administrativo.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'home', component: MenuComponent, canActivate: [Guardarota], children: [
       { path: 'inicio', component: InicialComponent, canActivate: [Guardarota] },
-      { path: 'pacientes', component: PacienteComponent, canActivate: [Guardarota] }
+      { path: 'pacientes', component: PacienteComponent, canActivate: [Guardarota] },
+      { path: 'administrativo', component: AdministrativoComponent, canActivate: [Guardarota]} 
     ]
   },
   
