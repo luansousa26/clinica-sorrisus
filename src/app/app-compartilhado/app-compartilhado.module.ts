@@ -37,6 +37,7 @@ import{
   MatToolbarModule,
   MatTooltipModule
       } from '@angular/material';
+import {ChartModule} from 'primeng/chart';
 import {SidebarModule} from 'primeng/sidebar';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -108,7 +109,8 @@ import { FullCalendarModule } from 'ng-fullcalendar';
     MatStepperModule,
     FormsModule,
     ReactiveFormsModule,
-    FullCalendarModule
+    FullCalendarModule,
+    ChartModule
       ]
 })
 export class AppCompartilhadoModule { }
