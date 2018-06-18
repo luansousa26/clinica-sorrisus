@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CalendarComponent } from 'ng-fullcalendar';
+import { Options } from 'fullcalendar';
 @Component({
   selector: 'app-calendario',
   templateUrl: './calendario.component.html',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarioComponent implements OnInit {
 
-  constructor() { }
+  calendarOptions: Options;
+  @ViewChild(CalendarComponent) ucCalendar: CalendarComponent;
+  constructor() {}
 
   ngOnInit() {
+    this.calendarOptions = {
+      editable: true,
+      eventLimit: false,
+      locale:'pt-br',
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listMonth'
+      },
+      events: []
+    };
   }
+  eventClick() {
 
+  }
+  updateEvent() {
+
+  }
+  clickButton() {
+    
+  }
 }
+

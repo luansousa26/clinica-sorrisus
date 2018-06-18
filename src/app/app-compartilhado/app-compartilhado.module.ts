@@ -47,6 +47,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { RouterModule } from '@angular/router';
 import {DialogModule} from 'primeng/dialog';
+import { FullCalendarModule } from 'ng-fullcalendar';
 
 @NgModule({
   imports: [
@@ -57,7 +58,7 @@ import {DialogModule} from 'primeng/dialog';
     HttpModule,
     HttpClientModule,
     MatNativeDateModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   declarations: [], 
   providers: [
@@ -106,7 +107,8 @@ import {DialogModule} from 'primeng/dialog';
     BrowserAnimationsModule,
     MatStepperModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FullCalendarModule
       ]
 })
 export class AppCompartilhadoModule { }
