@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PesquisaService } from '../../paciente/pesquisa/pesquisa.service';
 
 
 @Component({
@@ -9,12 +10,26 @@ import { Component, OnInit } from '@angular/core';
 export class GraficoComponent implements OnInit {
  
   data: any;
-  constructor() {
+  totalPacientes = 90;
+  constructor(private pesquisaService: PesquisaService) {
+   }
+
+  ngOnInit() {
+    this.getTotalPacientes();
+  }
+
+  getTotalPacientes() {
+    this.pesquisaService.getUsuarios().subscribe((pacientes: any[]) => {
+      this.totalPacientes = pacientes.length;
+      this.inicializaGrafico();
+    });
+  }
+  inicializaGrafico() {
     this.data = {
-      labels: ['A','B','C'],
+      labels: ['Pacientes Cadastrados','B','C'],
       datasets: [
           {
-              data: [300, 50, 100],
+              data: [this.totalPacientes, 50, 100],
               backgroundColor: [
                   "#FF6384",
                   "#36A2EB",
@@ -27,10 +42,6 @@ export class GraficoComponent implements OnInit {
               ]
           }]    
       };
-
-   }
-
-  ngOnInit() {
   }
 
 }
