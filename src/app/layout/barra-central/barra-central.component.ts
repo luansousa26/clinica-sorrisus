@@ -1,4 +1,5 @@
 import { Component, OnInit,trigger, state, transition, animate, style, keyframes } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-barra-central',
@@ -22,7 +23,7 @@ import { Component, OnInit,trigger, state, transition, animate, style, keyframes
 })
 export class BarraCentralComponent implements OnInit {
   currentState:any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.currentState = "inactive";

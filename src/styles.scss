@@ -5,6 +5,9 @@
 @import 'variaveis';
 @import '../node_modules/font-awesome/scss/font-awesome';
 @import "~fullcalendar/dist/fullcalendar.css";
+$images: ('assets/background.jpg','assets/background1.jpg','assets/background2.jpg','assets/background3.jpg');
+
+$img: nth($images, random(length($images)));
 * {
     margin:0;
     padding:0;
@@ -13,6 +16,6 @@
 }
 body{
     background-size:cover;
-    background-image: url('assets/background.jpg');   
+    background-image: url($img);   
     background-repeat: no-repeat; 
 }
