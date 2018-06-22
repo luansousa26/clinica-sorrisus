@@ -1,1 +1,10 @@
-<p-chart type="doughnut" [data]="data"></p-chart>
+<mat-form-field>
+  <mat-select placeholder="Selecione o tipo do gráfico" (change)="alterarGrafico()" [(ngModel)]="tipoGrafico" id="tipografico_alterar" name="tipoGrafico">
+    <mat-option *ngFor="let tipos of opcoesGrafico" [value]="tipos.value">
+      {{ tipos.label }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<div *ngIf="controlaGrafico">
+<p-chart [type]="tipoGrafico" [data]="data"></p-chart>
+</div>
