@@ -1,4 +1,4 @@
-import { Component, OnInit,trigger, state, transition, animate, style, keyframes} from '@angular/core';
+import { Component, OnInit, trigger, state, transition, animate, style, keyframes } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './../servicos/login.service';
 import { LoginModel } from './login.model';
@@ -6,19 +6,24 @@ import { LoginModel } from './login.model';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['login.scss'],
-  animations:[
+  animations: [
     // coloca a animação apenas onde possuir a diretiva [@container]="currentState" currentState 
     // ativa ou inativa a animação
     trigger("container", [
       state('active', style({})),
       transition("inactive => active", [
-          animate(1000, keyframes([
-              style({ transform: 'scale(1)' }),
-              style({ transform: 'scale(2)' }),
-              style({ transform: 'scale(1)' }),
-          ]))
+        animate(1000, keyframes([
+          style({
+            transition: '.3s',
+            transform: 'rotateX(60deg)',
+          }),
+          style({
+            transition: '.6s',
+            transform: 'rotateY(40deg)',
+          })
+        ]))
       ]),
-  ]),
+    ]),
   ]
 })
 export class LoginComponent implements OnInit {
@@ -36,14 +41,14 @@ export class LoginComponent implements OnInit {
   }];
 
   // variavel para controlar a animação
-  currentState:any;
+  currentState: any;
   constructor(private router: Router, private loginService: LoginService) {
   }
 
   ngOnInit() {
     this.currentState = "inactive";
     setTimeout(() => {
-        this.currentState = "active";
+      this.currentState = "active";
     }, 500);
     if (window.sessionStorage.getItem('usuarioLogado') === 'true') {
       this.router.navigate(['home/inicio']);
