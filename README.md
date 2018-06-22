@@ -6,7 +6,8 @@ Projeto em Andamento.
 ![novatela1](https://user-images.githubusercontent.com/33549496/41756700-405f2a18-75b4-11e8-8e6e-7bef28e25bdd.png)
 ![cadastro](https://user-images.githubusercontent.com/33549496/39080177-f71b80de-44ff-11e8-9fea-f4ff6760ecbc.jpg)
 ![pesquisa](https://user-images.githubusercontent.com/33549496/39080180-f7cf0c1c-44ff-11e8-941b-b313b568a034.jpg)
-
+![grafico_barra](https://user-images.githubusercontent.com/33549496/41756985-a8b70a8a-75b5-11e8-8872-be217762838d.png)
+![grafico_pizza](https://user-images.githubusercontent.com/33549496/41756988-b015dbf8-75b5-11e8-8802-0c10110a4dbc.png)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
 
 ## Development server
