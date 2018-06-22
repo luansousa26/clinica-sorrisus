@@ -9,9 +9,11 @@ import {MatSnackBar} from '@angular/material';
 })
 export class MenuComponent implements OnInit {
   titulo = 'Clínica Sorrisus';
+  usuarioLogado: any;
   constructor(private loginService: LoginService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
+    this.usuarioLogado = this.loginService.usuarioAutenticado.usuario;
   }
 
   deslogar() {
