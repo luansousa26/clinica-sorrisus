@@ -8,6 +8,10 @@ Projeto em Andamento.
 ![pesquisa](https://user-images.githubusercontent.com/33549496/39080180-f7cf0c1c-44ff-11e8-941b-b313b568a034.jpg)
 ![grafico_barra](https://user-images.githubusercontent.com/33549496/41756985-a8b70a8a-75b5-11e8-8872-be217762838d.png)
 ![grafico_pizza](https://user-images.githubusercontent.com/33549496/41756988-b015dbf8-75b5-11e8-8802-0c10110a4dbc.png)
+![image](https://user-images.githubusercontent.com/33549496/42143023-4eab4386-7d89-11e8-819e-368e50786c14.png)
+![image](https://user-images.githubusercontent.com/33549496/42143052-7932a43c-7d89-11e8-85e2-a4ef86aca67c.png)
+![image](https://user-images.githubusercontent.com/33549496/42143084-a0057422-7d89-11e8-995d-400497ddf7fb.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
 
 ## Development server
