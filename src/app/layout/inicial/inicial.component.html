@@ -14,10 +14,10 @@
     </div>
     <div class="span"><a>Módulo Administrativo</a></div>
   </div>
-  <div [@divs]="currentState" class="col-md-2 col-sm-5 divs div3">
+  <div (click)="router.navigate(['home/financeiro']);" [@divs]="currentState" class="col-md-2 col-sm-5 divs div3">
     <div class="icon">
       <i class="fa fa-cc-visa"></i>
     </div>
-    <div class="span"><a routerLink="../financeiro">Módulo Financeiro</a></div>
+    <div class="span"><a>Módulo Financeiro</a></div>
   </div>
 </div>
