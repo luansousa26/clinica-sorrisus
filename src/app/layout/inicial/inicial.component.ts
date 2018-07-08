@@ -1,4 +1,5 @@
 import { Component, OnInit, trigger, state, style, transition, animate, keyframes } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicial',
@@ -18,7 +19,7 @@ import { Component, OnInit, trigger, state, style, transition, animate, keyframe
 export class InicialComponent implements OnInit {
 
   currentState: any;
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
     this.currentState = "inactive";

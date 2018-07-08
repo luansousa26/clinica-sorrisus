@@ -2,11 +2,11 @@
   <div class="col-md-3 col-sm-1">
 
   </div>
-  <div [@divs]="currentState" class="col-md-2 col-sm-3 divs div1">
+  <div (click)="router.navigate(['home/pacientes']);" [@divs]="currentState" class="col-md-2 col-sm-3 divs div1">
     <div class="icon">
       <i class="fa fa-user-md"></i>
     </div>
-    <div class="span"><a routerLink="../pacientes">Módulo de Pacientes</a></div>
+    <div class="span"><a>Módulo de Pacientes</a></div>
   </div>
   <div [@divs]="currentState" class="col-md-2 col-sm-5 divs div2">
     <div class="icon">
