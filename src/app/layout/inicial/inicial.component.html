@@ -8,11 +8,11 @@
     </div>
     <div class="span"><a>Módulo de Pacientes</a></div>
   </div>
-  <div [@divs]="currentState" class="col-md-2 col-sm-5 divs div2">
+  <div (click)="router.navigate(['home/administrativo']);" [@divs]="currentState" class="col-md-2 col-sm-5 divs div2">
     <div class="icon">
       <i class="fa fa-address-book"></i>
     </div>
-    <div class="span"><a routerLink="../administrativo">Módulo Administrativo</a></div>
+    <div class="span"><a>Módulo Administrativo</a></div>
   </div>
   <div [@divs]="currentState" class="col-md-2 col-sm-5 divs div3">
     <div class="icon">
