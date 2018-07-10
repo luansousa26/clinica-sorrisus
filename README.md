@@ -1,6 +1,7 @@
 # clínica-sorrisus
 
 Projeto em Andamento.
+Project in progress, for use of dental clinics.
 
 ![login](https://user-images.githubusercontent.com/33549496/39887167-ea9a7cd0-5467-11e8-9023-4a90e54b348c.png)
 ![novatela1](https://user-images.githubusercontent.com/33549496/41756700-405f2a18-75b4-11e8-8e6e-7bef28e25bdd.png)
