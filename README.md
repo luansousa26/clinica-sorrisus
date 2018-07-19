@@ -1,4 +1,4 @@
-# clínica-sorrisus https://luansousa26.github.io/clinica-sorrisus/
+# clínica-sorrisus https://luansousa26.github.io/clinica-sorrisus/  :bird:
 
 Projeto em Andamento.
 Project in progress, for use of dental clinics.
