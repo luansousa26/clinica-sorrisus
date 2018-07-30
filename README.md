@@ -1,8 +1,9 @@
 # clínica-sorrisus https://luansousa26.github.io/clinica-sorrisus/  :bird:
 
-Projeto em Andamento.
+## Projeto em Andamento.
 Project in progress, for use of dental clinics.
 
+## Telas:
 ![login](https://user-images.githubusercontent.com/33549496/39887167-ea9a7cd0-5467-11e8-9023-4a90e54b348c.png)
 ![novatela1](https://user-images.githubusercontent.com/33549496/41756700-405f2a18-75b4-11e8-8e6e-7bef28e25bdd.png)
 ![cadastro](https://user-images.githubusercontent.com/33549496/39080177-f71b80de-44ff-11e8-9fea-f4ff6760ecbc.jpg)
