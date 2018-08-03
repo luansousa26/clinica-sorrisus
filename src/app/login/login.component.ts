@@ -1,4 +1,4 @@
-import { Component, OnInit, trigger, state, transition, animate, style, keyframes } from '@angular/core';
+import { Component, OnInit, trigger, state, transition, animate, style, keyframes, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './../servicos/login.service';
 import { LoginModel } from './login.model';
@@ -26,12 +26,12 @@ import { LoginModel } from './login.model';
     ]),
   ]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   usuarioIncorretoNome: string;
   usuarioIncorreto = false;
   usuario = new LoginModel();
-
+  imagensDisponiveis: any[] = [];
   usuariosCadastrados = [{
     usuario: 'admin', senha: 'admin'
   },
@@ -39,6 +39,9 @@ export class LoginComponent implements OnInit {
   {
     usuario: 'teste', senha: 'teste'
   }];
+
+  controlador = -1;
+  controle: any;
 
   // variavel para controlar a animação
   currentState: any;
@@ -54,6 +57,14 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['home/inicio']);
     }
     this.usuarioIncorreto = false;
+
+    this.imagensDisponiveis = [
+      'assets/background.jpg',
+      'assets/background1.jpg',
+      'assets/background2.jpg',
+      'assets/background3.jpg'
+    ];
+    this.controle = setInterval(() => {this.displayNextImage(); }, 7000);
   }
 
   logarUsuario() {
@@ -69,6 +80,17 @@ export class LoginComponent implements OnInit {
       }
     }
   }
-
+  displayNextImage() {
+    (<HTMLImageElement>document.getElementById('body')).style.opacity = '0.1';
+    (<HTMLImageElement>document.getElementById('body')).style.transition = 'opacity 1s linear';
+    setTimeout(() => {
+      this.controlador = (this.controlador === this.imagensDisponiveis.length - 1) ? 0 : this.controlador + 1;
+      (<HTMLImageElement>document.getElementById('body')).style.backgroundImage = `url('${ this.imagensDisponiveis[this.controlador]}')`;
+      (<HTMLImageElement>document.getElementById('body')).style.opacity = '1';
+    }, 600);
+  }
+  ngOnDestroy() {
+    clearInterval(this.controle);
+    }
 
 }
