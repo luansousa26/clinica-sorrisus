@@ -59,10 +59,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.usuarioIncorreto = false;
 
     this.imagensDisponiveis = [
-      'assets/background.jpg',
       'assets/background1.jpg',
       'assets/background2.jpg',
-      'assets/background3.jpg'
+      'assets/background3.jpg',
+      'assets/background.jpg',
     ];
     this.controle = setInterval(() => {this.displayNextImage(); }, 7000);
   }
