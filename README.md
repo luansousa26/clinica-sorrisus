@@ -5,7 +5,7 @@ Project in progress, for use of dental clinics.
 
 ## Telas:
 ![login](https://user-images.githubusercontent.com/33549496/39887167-ea9a7cd0-5467-11e8-9023-4a90e54b348c.png)
-![novatela1](https://user-images.githubusercontent.com/33549496/41756700-405f2a18-75b4-11e8-8e6e-7bef28e25bdd.png)
+![image](https://user-images.githubusercontent.com/33549496/43618624-d73ebe24-969f-11e8-8fd5-d7c2edca9d41.png)
 ![cadastro](https://user-images.githubusercontent.com/33549496/39080177-f71b80de-44ff-11e8-9fea-f4ff6760ecbc.jpg)
 ![pesquisa](https://user-images.githubusercontent.com/33549496/39080180-f7cf0c1c-44ff-11e8-941b-b313b568a034.jpg)
 ![grafico_barra](https://user-images.githubusercontent.com/33549496/41756985-a8b70a8a-75b5-11e8-8872-be217762838d.png)
