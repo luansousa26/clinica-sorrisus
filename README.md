@@ -3,7 +3,7 @@
 ## Project in progress Angular 5 with Java 8.
 Project in progress, for use of dental clinics.
 
-## Telas:
+## Screens:
 ![login](https://user-images.githubusercontent.com/33549496/39887167-ea9a7cd0-5467-11e8-9023-4a90e54b348c.png)
 ![image](https://user-images.githubusercontent.com/33549496/43618672-1627cffe-96a0-11e8-8de1-84362046aadb.png)
 ![image](https://user-images.githubusercontent.com/33549496/43618624-d73ebe24-969f-11e8-8fd5-d7c2edca9d41.png)
