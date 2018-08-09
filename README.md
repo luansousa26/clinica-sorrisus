@@ -3,6 +3,10 @@
 ## Project in progress Angular 5 with Java 8.
 Project in progress, for use of dental clinics.
 
+## Login:
+### User: admin
+### Password: admin
+
 ## Screens:
 ![login](https://user-images.githubusercontent.com/33549496/39887167-ea9a7cd0-5467-11e8-9023-4a90e54b348c.png)
 ![image](https://user-images.githubusercontent.com/33549496/43618672-1627cffe-96a0-11e8-8de1-84362046aadb.png)
