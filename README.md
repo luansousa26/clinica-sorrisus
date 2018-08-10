@@ -7,6 +7,14 @@ Project in progress, for use of dental clinics.
 ### User: admin
 ### Password: admin
 
+## Technologies:
+  * Angular 5.
+  * PrimeNg.
+  * Angular Material.
+  * Java 8.
+  * SCSS.
+  * HTML5.
+  
 ## Screens:
 ![login](https://user-images.githubusercontent.com/33549496/39887167-ea9a7cd0-5467-11e8-9023-4a90e54b348c.png)
 ![image](https://user-images.githubusercontent.com/33549496/43618672-1627cffe-96a0-11e8-8de1-84362046aadb.png)
@@ -18,29 +26,3 @@ Project in progress, for use of dental clinics.
 ![image](https://user-images.githubusercontent.com/33549496/42143023-4eab4386-7d89-11e8-819e-368e50786c14.png)
 ![image](https://user-images.githubusercontent.com/33549496/42143052-7932a43c-7d89-11e8-85e2-a4ef86aca67c.png)
 ![image](https://user-images.githubusercontent.com/33549496/42143084-a0057422-7d89-11e8-995d-400497ddf7fb.png)
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
