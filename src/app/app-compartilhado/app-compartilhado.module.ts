@@ -1,9 +1,9 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { CommonModule, registerLocaleData  } from '@angular/common';
-import {HttpModule} from '@angular/http';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import { HttpModule } from '@angular/http';
 import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt);
-import{
+import {
   MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
@@ -36,18 +36,18 @@ import{
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule
-      } from '@angular/material';
-import {ChartModule} from 'primeng/chart';
-import {SidebarModule} from 'primeng/sidebar';
+} from '@angular/material';
+import { ChartModule } from 'primeng/chart';
+import { SidebarModule } from 'primeng/sidebar';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormGroup,ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { CdkTableModule } from '@angular/cdk/table';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { RouterModule } from '@angular/router';
-import {DialogModule} from 'primeng/dialog';
+import { DialogModule } from 'primeng/dialog';
 import { FullCalendarModule } from 'ng-fullcalendar';
 
 @NgModule({
@@ -61,56 +61,55 @@ import { FullCalendarModule } from 'ng-fullcalendar';
     MatNativeDateModule,
     ReactiveFormsModule
   ],
-  declarations: [], 
+  declarations: [],
   providers: [
-    { provide: LOCALE_ID, useValue: 'pt-BR' }    
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],
-  
   exports:
-  [
-    AngularFontAwesomeModule,
-    RouterModule,
-    CdkTableModule,
-    MatAutocompleteModule,
-    SidebarModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatStepperModule,
-    MatDatepickerModule,
-    MatDialogModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    DialogModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    BrowserAnimationsModule,
-    MatStepperModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FullCalendarModule,
-    ChartModule
-      ]
+    [
+      AngularFontAwesomeModule,
+      RouterModule,
+      CdkTableModule,
+      MatAutocompleteModule,
+      SidebarModule,
+      MatButtonModule,
+      MatButtonToggleModule,
+      MatCardModule,
+      MatCheckboxModule,
+      MatChipsModule,
+      MatStepperModule,
+      MatDatepickerModule,
+      MatDialogModule,
+      MatDividerModule,
+      MatExpansionModule,
+      MatGridListModule,
+      MatIconModule,
+      MatInputModule,
+      MatListModule,
+      MatMenuModule,
+      DialogModule,
+      MatNativeDateModule,
+      MatPaginatorModule,
+      MatProgressBarModule,
+      MatProgressSpinnerModule,
+      MatRadioModule,
+      MatRippleModule,
+      MatSelectModule,
+      MatSidenavModule,
+      MatSliderModule,
+      MatSlideToggleModule,
+      MatSnackBarModule,
+      MatSortModule,
+      MatTableModule,
+      MatTabsModule,
+      MatToolbarModule,
+      MatTooltipModule,
+      BrowserAnimationsModule,
+      MatStepperModule,
+      FormsModule,
+      ReactiveFormsModule,
+      FullCalendarModule,
+      ChartModule
+    ]
 })
 export class AppCompartilhadoModule { }

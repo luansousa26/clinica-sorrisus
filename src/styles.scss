@@ -19,3 +19,12 @@ body{
     background-image: url($img);   
     background-repeat: no-repeat; 
 }
+
+/* material button toggle */
+.mat-button-toggle-label{
+    margin-top: 3px;
+}
+.mat-button-toggle-checked{
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    color: white;
+}
