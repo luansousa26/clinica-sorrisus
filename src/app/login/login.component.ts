@@ -7,19 +7,20 @@ import { LoginModel } from './login.model';
   templateUrl: './login.component.html',
   styleUrls: ['login.scss'],
   animations: [
-    // coloca a animação apenas onde possuir a diretiva [@container]="currentState" currentState 
+    // coloca a animação apenas onde possuir a diretiva [@container]='currentState' currentState
     // ativa ou inativa a animação
-    trigger("container", [
-      state('active', style({})),
-      transition("inactive => active", [
-        animate(1000, keyframes([
+    trigger('container', [
+      state('inactive', style({
+        transition: '1s',
+        opacity: '0',
+        marginTop: '-400px'
+      })),
+      transition('inactive => active', [
+        animate(3000, keyframes([
           style({
-            transition: '.3s',
-            transform: 'rotateX(60deg)',
-          }),
-          style({
-            transition: '.6s',
-            transform: 'rotateY(40deg)',
+            transition: '2s',
+            opacity: '1',
+            marginTop: '80px'
           })
         ]))
       ]),
@@ -49,9 +50,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.currentState = "inactive";
+    this.currentState = 'inactive';
     setTimeout(() => {
-      this.currentState = "active";
+      this.currentState = 'active';
     }, 500);
     if (window.sessionStorage.getItem('usuarioLogado') === 'true') {
       this.router.navigate(['home/inicio']);
@@ -81,7 +82,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
   displayNextImage() {
-    (<HTMLImageElement>document.getElementById('body')).style.opacity = '0.1';
+    (<HTMLImageElement>document.getElementById('body')).style.opacity = '0.5';
     (<HTMLImageElement>document.getElementById('body')).style.transition = 'opacity 1s linear';
     setTimeout(() => {
       this.controlador = (this.controlador === this.imagensDisponiveis.length - 1) ? 0 : this.controlador + 1;
