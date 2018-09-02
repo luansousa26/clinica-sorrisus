@@ -6,9 +6,15 @@
 
 @media only screen and (max-width: 800px){
     .barra-central {
+    height: 300px;
+    }
+}
+@media only screen and (max-width: 564px){
+    .barra-central {
     height: 400px;
     }
 }
+
 
 .titulo {
     padding-top: 60px;
