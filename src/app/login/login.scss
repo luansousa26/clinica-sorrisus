@@ -67,7 +67,9 @@ img{
 	height: 60px;
 	float: right;
 }
-#login:hover {
-	font-weight: bold;
-	background: #1b88c6;
+#btn-login{
+	transition: 2s;
+}
+#btn-login:hover {
+	background: #1fa3f0;
 	}

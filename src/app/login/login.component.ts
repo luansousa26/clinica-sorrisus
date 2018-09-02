@@ -65,33 +65,41 @@ export class LoginComponent implements OnInit, OnDestroy {
       'assets/background3.jpg',
       'assets/background.jpg',
     ];
-    this.controle = setInterval(() => {this.displayNextImage(); }, 7000);
+    this.controle = setInterval(() => { this.displayNextImage(); }, 7000);
   }
 
-  logarUsuario() {
+  logarUsuario(): void {
     for (let i = 0; i < this.usuariosCadastrados.length; i++) {
       if (Object.is(this.usuario.usuario, this.usuariosCadastrados[i].usuario)
         && Object.is(this.usuario.senha, this.usuariosCadastrados[i].senha)) {
-        this.usuarioIncorreto = false;
-        this.loginService.logarUsuario(this.usuario);
-        this.router.navigate(['home/inicio']);
+        this.permitirLogin();
       } else {
-        this.usuarioIncorretoNome = this.usuario.usuario;
-        this.usuarioIncorreto = true;
+        this.bloquearLogin();
       }
     }
+  }
+
+  permitirLogin(): void {
+    this.usuarioIncorreto = false;
+    this.loginService.logarUsuario(this.usuario);
+    this.router.navigate(['home/inicio']);
+  }
+
+  bloquearLogin(): void {
+    this.usuarioIncorretoNome = this.usuario.usuario;
+    this.usuarioIncorreto = true;
   }
   displayNextImage() {
     (<HTMLImageElement>document.getElementById('body')).style.opacity = '0.5';
     (<HTMLImageElement>document.getElementById('body')).style.transition = 'opacity 1s linear';
     setTimeout(() => {
       this.controlador = (this.controlador === this.imagensDisponiveis.length - 1) ? 0 : this.controlador + 1;
-      (<HTMLImageElement>document.getElementById('body')).style.backgroundImage = `url('${ this.imagensDisponiveis[this.controlador]}')`;
+      (<HTMLImageElement>document.getElementById('body')).style.backgroundImage = `url('${this.imagensDisponiveis[this.controlador]}')`;
       (<HTMLImageElement>document.getElementById('body')).style.opacity = '1';
     }, 600);
   }
   ngOnDestroy() {
     clearInterval(this.controle);
-    }
+  }
 
 }
