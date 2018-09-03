@@ -6,36 +6,59 @@ export class ValidacaoTipos {
         return new RegExp(EnumTipos.NUMERICO).test(texto);
     }
 
-    public static validarApenasLetrasEspaco(tecla: KeyboardEvent): boolean   {
+    public static validarApenasLetrasEspaco(tecla: KeyboardEvent): boolean {
         return new RegExp(EnumTipos.LETRAS_E_ESPACO).test(tecla.key);
     }
 
+
+
+
+
     public static validarMascaraTelefoneFixo(telefone: string): string {
-        if  (telefone) {
-            switch  (telefone.length) {
+        if (telefone) {
+            switch (telefone.length) {
                 case 1:
-                telefone = `(${telefone}`;
-                break;
+                    telefone = `(${telefone}`;
+                    break;
                 case 3:
-                telefone = `${telefone})`;
-                break;
+                    telefone = `${telefone})`;
+                    break;
                 case 8:
-                telefone = `${telefone}-`;
+                    telefone = `${telefone}-`;
             }
         }
         return telefone;
     }
     public static validarMascaraTelefoneCelular(telefone: string): string {
-        if  (telefone) {
-            switch  (telefone.length) {
+        if (telefone) {
+            switch (telefone.length) {
                 case 1:
-                telefone = `(${telefone}`;
-                break;
+                    telefone = `(${telefone}`;
+                    break;
                 case 3:
-                telefone = `${telefone})`;
-                break;
+                    telefone = `${telefone})`;
+                    break;
                 case 9:
-                telefone = `${telefone}-`;
+                    telefone = `${telefone}-`;
+            }
+        }
+        return telefone;
+    }
+
+    public static validarCampoTelefone(telefone: string, tipoTelefone: string): string {
+
+        if (telefone) {
+            switch (tipoTelefone) {
+                case 'F':
+                    if (telefone.length < 13) {
+                        return telefone = null;
+                    }
+                    break;
+                case 'C':
+                    if (telefone.length < 14) {
+                        return telefone = null;
+                    }
+                    break;
             }
         }
         return telefone;

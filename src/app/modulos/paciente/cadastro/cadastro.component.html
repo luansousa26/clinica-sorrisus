@@ -56,12 +56,12 @@
       <hr>
       <div class="row">
         <div class="col-md-4 col-sm-12 espaco-entrecampos">
-          <label>Telefone Residencial</label>
-          <input type="text" [(ngModel)]="paciente.telefoneResidencial" (keypress)="paciente.telefoneResidencial = validacoes.validarMascaraTelefoneFixo(paciente.telefoneResidencial)" minlength="13" maxlength="13" name="telefoneResidencial" placeholder="(11)4002-8922" class="form-control">
+          <label>Telefone Residencial *</label>
+          <input type="text" [(ngModel)]="paciente.telefoneResidencial" (keypress)="paciente.telefoneResidencial = validacoes.validarMascaraTelefoneFixo(paciente.telefoneResidencial)" (focusout)="paciente.telefoneResidencial = validacoes.validarCampoTelefone(paciente.telefoneResidencial, 'F')" minlength="13" maxlength="13" name="telefoneResidencial" placeholder="(11)4002-8922" class="form-control" required>
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
           <label>Celular </label>
-          <input type="text" [(ngModel)]="paciente.celular" name="celular" (keypress)="paciente.celular = validacoes.validarMascaraTelefoneCelular(paciente.celular)" minlength="14" maxlength="14" placeholder="(11) 94002-8922" class="form-control">
+          <input type="text" [(ngModel)]="paciente.celular" name="celular" (keypress)="paciente.celular = validacoes.validarMascaraTelefoneCelular(paciente.celular)" (focusout)="paciente.celular = validacoes.validarCampoTelefone(paciente.celular, 'C')" minlength="14" maxlength="14" placeholder="(11) 94002-8922" class="form-control">
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
           <label>E-mail </label>
