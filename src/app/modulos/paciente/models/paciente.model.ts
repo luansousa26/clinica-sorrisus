@@ -5,7 +5,7 @@ export class PacienteModel {
     nomeCompleto?: string;
     dataNascimento?: any;
     sexo?: string;
-    cpf?: any;
+    cpf?: string;
     profissao?: string;
     endereco?: EnderecoModel;
     dadosClinicos?: DadosClinicosModel;
