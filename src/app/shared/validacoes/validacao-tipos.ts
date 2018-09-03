@@ -63,4 +63,8 @@ export class ValidacaoTipos {
         }
         return telefone;
     }
+
+    public static validarEmail(email: string): string {
+       return new RegExp(EnumTipos.EMAIL).test(email) ? email : null;
+    }
 }

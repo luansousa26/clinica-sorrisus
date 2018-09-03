@@ -64,8 +64,8 @@
           <input type="text" [(ngModel)]="paciente.celular" name="celular" (keypress)="paciente.celular = validacoes.validarMascaraTelefoneCelular(paciente.celular)" (focusout)="paciente.celular = validacoes.validarCampoTelefone(paciente.celular, 'C')" minlength="14" maxlength="14" placeholder="(11) 94002-8922" class="form-control">
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
-          <label>E-mail </label>
-          <input type="text" [(ngModel)]="paciente.email" name="email" placeholder="luan26@uninove.edu.br" class="form-control">
+          <label>E-mail * </label>
+          <input type="text" [(ngModel)]="paciente.email" name="email" placeholder="luan26@uninove.edu.br" (focusout)="paciente.email = validacoes.validarEmail(paciente.email)" class="form-control" required>
         </div>
       </div>
       <div class="row">
