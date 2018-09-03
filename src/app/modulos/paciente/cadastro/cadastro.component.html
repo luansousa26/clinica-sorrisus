@@ -78,106 +78,109 @@
           <label>Logradouro</label>
           <input type="text" [(ngModel)]="paciente.endereco.logradouro" name="logradouro" class="form-control" disabled>
         </div>
-        <div class="col-md-2 col-sm-4" align="left">
+        <div class="col-md-2 col-sm-4 espaco-entrecampos" align="left">
           <label>Número</label>
           <input type="text" [(ngModel)]="paciente.endereco.numero" placeholder="220A" name="numero" class="form-control">
         </div>
       </div>
       <div class="row">
-
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
-          <label>Bairro
-            <input type="text" [(ngModel)]="paciente.endereco.bairro" name="bairro" class="form-control" disabled>
-          </label>
+          <label>Bairro </label>
+          <input type="text" [(ngModel)]="paciente.endereco.bairro" name="bairro" class="form-control" disabled>
         </div>
-        <div class="col-md-2 col-sm-12 espaco-entrecampos" align="left">
-          <label>Estado
-            <input type="text" [(ngModel)]="paciente.endereco.uf" name="estado" class="form-control" disabled>
-          </label>
+        <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
+          <label>Estado</label>
+          <input type="text" [(ngModel)]="paciente.endereco.uf" name="estado" class="form-control" disabled>
         </div>
-      </div>
-      <div class="col-md-12 col-sm-12 espaco-entrecampos">
-        <label>Complemento
-          <input type="text" [(ngModel)]="paciente.endereco.complemento" placeholder="Bloco 30 Apto 22" name="complemento" class="form-control input-nome">
-        </label>
+        <div class="col-md-4 col-sm-12 espaco-entrecampos">
+          <label>Complemento </label>
+          <input type="text" [(ngModel)]="paciente.endereco.complemento" placeholder="Bloco 30 Apto 22" name="complemento" class="form-control">
+        </div>
       </div>
       <br/>
       <div class="col-md-6 col-sm-12" align="left">
         <span class="titulos">Dados Adicionais</span>
       </div>
       <hr>
-      <div class="col-md-1 col-sm-12 espaco-entrecampos" align="left">
-        <label>
-          Alergia<br/>
-          <section class="example-section">
-            <mat-checkbox id="antibiotico" class="example-margin">Antibiótico</mat-checkbox>
-            <mat-checkbox id="anestesico" class="example-margin">Anestésico</mat-checkbox>
-          </section>
-        </label>
+      <div class="row">
+        <div class="col-md-2 col-sm-4 espaco-entrecampos" align="left">
+          <div>
+            <label>Alergia</label>
+            <section class="example-section">
+              <mat-checkbox id="antibiotico" class="example-margin">Antibiótico</mat-checkbox>
+              <mat-checkbox id="anestesico" class="example-margin">Anestésico</mat-checkbox>
+            </section>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-5 espaco-entrecampos" align="left">
+          <div>
+            <label>Qual(ais)? </label>
+            <input type="text" [(ngModel)]="paciente.dadosClinicos.alergia" name="alergia" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-4 espaco-entrecampos" align="left">
+          <div>
+            <label>Sensibilidade a algum medicamento? </label>
+            <mat-radio-group>
+              <mat-radio-button id="flagSensibilidadeSim" #flagSensibilidadeSim (click)="verificaFlags(flagSensibilidadeSim)" value="S">Sim</mat-radio-button><br/>
+              <mat-radio-button id="flagSensibilidadeNao" #flagSensibilidadeNao (click)="verificaFlags(flagSensibilidadeNao)" value="N">Não</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-5 espaco-entrecampos" align="left">
+          <div>
+            <label>Qual(ais)? </label>
+              <input [disabled]="!flagSensibilidadeSim._checked" [(ngModel)]="paciente.dadosClinicos.sensibilidade" name="sensibilidade"
+                type="text" class="form-control">
+          </div>
+        </div>
       </div>
-      <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
-        <label>Qual(ais)?
-          <input type="text" [(ngModel)]="paciente.dadosClinicos.alergia" name="alergia" class="form-control">
-        </label>
+      <div class="row">
+        <div class="col-md-3 col-sm-4 espaco-entrecampos" align="left">
+          <div>
+            <label>Sua pressão sanguínea é alta?</label><br/>
+            <mat-button-toggle-group>
+                <mat-button-toggle id="flagPressaoSim" #flagPressaoSim (click)="verificaFlags(flagPressaoSim)" value="S">Sim</mat-button-toggle>
+                <mat-button-toggle id="flagPressaoNao" #flagPressaoNao (click)="verificaFlags(flagPressaoNao)">Não</mat-button-toggle>
+              </mat-button-toggle-group>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
+          <div>
+            <label>Está tomando algum medicamento? </label><br/>
+            <mat-button-toggle-group>
+                <mat-button-toggle id="flagMedicamentoSim" #flagMedicamentoSim (click)="verificaFlags(flagMedicamentoSim)" value="S">Sim</mat-button-toggle>
+                <mat-button-toggle id="flagMedicamentoNao" #flagMedicamentoNao (click)="verificaFlags(flagMedicamentoNao)" value="N">Não</mat-button-toggle>
+              </mat-button-toggle-group>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
+          <div>
+            <label>Qual(ais)?</label>
+            <input [disabled]="!flagMedicamentoSim._checked" type="text" [(ngModel)]="paciente.dadosClinicos.medicamento" name="medicamento"
+              class="form-control">
+          </div>
+        </div>
       </div>
-      <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
-        <label>
-          Sensibilidade a algum medicamento?<br/>
-          <mat-radio-group>
-            <mat-radio-button id="flagSensibilidadeSim" #flagSensibilidadeSim (click)="verificaFlags(flagSensibilidadeSim)" value="S">Sim</mat-radio-button><br/>
-            <mat-radio-button id="flagSensibilidadeNao" #flagSensibilidadeNao (click)="verificaFlags(flagSensibilidadeNao)" value="N">Não</mat-radio-button>
-          </mat-radio-group>
-        </label>
-      </div>
-      <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
-        <label>Qual(ais)?
-          <input [disabled]="!flagSensibilidadeSim._checked" [(ngModel)]="paciente.dadosClinicos.sensibilidade" name="sensibilidade"
-            type="text" class="form-control">
-        </label>
-      </div>
-      <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
-        <label>
-          Sua pressão sanguínea é alta? <br/>
-          <mat-radio-group>
-            <mat-radio-button id="flagPressaoSim" #flagPressaoSim (click)="verificaFlags(flagPressaoSim)" value="S">Sim</mat-radio-button><br/>
-            <mat-radio-button id="flagPressaoNao" #flagPressaoNao (click)="verificaFlags(flagPressaoNao)" value="N">Não</mat-radio-button>
-          </mat-radio-group>
-        </label>
-      </div>
-      <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
-        <label>
-          Está tomando algum medicamento?<br/>
-          <mat-radio-group>
-            <mat-radio-button id="flagMedicamentoSim" #flagMedicamentoSim (click)="verificaFlags(flagMedicamentoSim)" value="S">Sim</mat-radio-button><br/>
-            <mat-radio-button id="flagMedicamentoNao" #flagMedicamentoNao (click)="verificaFlags(flagMedicamentoNao)" value="N">Não</mat-radio-button>
-          </mat-radio-group>
-        </label>
-      </div>
-      <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
-        <label>Qual(ais)?
-          <input [disabled]="!flagMedicamentoSim._checked" type="text" [(ngModel)]="paciente.dadosClinicos.medicamento" name="medicamento"
-            class="form-control">
-        </label>
-      </div>
-      <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
-        <label>
-          Tem algum problema de saúde?<br/>
-          <mat-radio-group>
-            <mat-radio-button id="flagProblemaSim" #flagProblemaSim (click)="verificaFlags(flagProblemaSim)" value="S">Sim</mat-radio-button><br/>
-            <mat-radio-button id="flagProblemaNao" #flagProblemaNao (click)="verificaFlags(flagProblemaNao)" value="N">Não</mat-radio-button>
-          </mat-radio-group>
-        </label>
-      </div>
-      <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
-        <label>Qual(ais)?
-          <input [disabled]="!flagProblemaSim._checked" type="text" [(ngModel)]="paciente.dadosClinicos.problemaSaude" name="problemaSaude"
-            class="form-control">
-        </label>
-      </div>
-      <div class="col-md-4 col-sm-12 espaco-entrecampos">
-        <button type="button" [disabled]="cadastroForm.invalid" (click)="salvarDados()" class="btn btn-success btn-block">Salvar</button>
-      </div>
-      <br/>
+    <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
+      <label>
+        Tem algum problema de saúde?<br/>
+        <mat-radio-group>
+          <mat-radio-button id="flagProblemaSim" #flagProblemaSim (click)="verificaFlags(flagProblemaSim)" value="S">Sim</mat-radio-button><br/>
+          <mat-radio-button id="flagProblemaNao" #flagProblemaNao (click)="verificaFlags(flagProblemaNao)" value="N">Não</mat-radio-button>
+        </mat-radio-group>
+      </label>
     </div>
+    <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
+      <label>Qual(ais)?
+        <input [disabled]="!flagProblemaSim._checked" type="text" [(ngModel)]="paciente.dadosClinicos.problemaSaude" name="problemaSaude"
+          class="form-control">
+      </label>
+    </div>
+    <div class="col-md-4 col-sm-12 espaco-entrecampos">
+      <button type="button" [disabled]="cadastroForm.invalid" (click)="salvarDados()" class="btn btn-success btn-block">Salvar</button>
+    </div>
+    <br/>
+  </div>
   </div>
 </form>
