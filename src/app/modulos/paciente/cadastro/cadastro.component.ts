@@ -19,6 +19,7 @@ export class CadastroComponent implements OnInit {
     postRetorno: any;
     flagMedicamento: boolean;
     situacaoCpf: boolean;
+    focusoutCpf: boolean;
     @ViewChild('cadastroForm') cadastroForm: NgForm;
 
     constructor(private cadastroService: CadastroService,
@@ -35,7 +36,7 @@ export class CadastroComponent implements OnInit {
         this.situacaoCpf = ValidacaoCPF.validarCpf(this.paciente.cpf);
     }
 
-    marcararCpf() {
+    marcararCpf(tecla: KeyboardEvent) {
         this.paciente.cpf = ValidacaoCPF.inclurMascara(this.paciente.cpf);
     }
 

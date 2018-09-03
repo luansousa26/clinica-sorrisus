@@ -37,9 +37,10 @@
           <label>
             CPF *
           </label>
-          <input type="text" [(ngModel)]="paciente.cpf" minlength="14" maxlength="14" name="cpf" (keypress)="marcararCpf()" (focusout)="validarCpf()"
-            placeholder="037.191.200-88" pattern="[0-9]{11}|[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" class="form-control" required>
-          <mat-error *ngIf="paciente.cpf?.length === 14 && !situacaoCpf">O CPF é inválido</mat-error>
+          <input type="text" [(ngModel)]="paciente.cpf" minlength="14" maxlength="14" name="cpf" (keypress)="marcararCpf($event)" (onfocus)="focusoutCpf = false;" (focusout)="validarCpf();controlaFocoCpf = true;"
+            placeholder="037.191.200-88" pattern="^[0-9]*$" class="form-control" required>
+          <mat-error *ngIf="controlaFocoCpf && !situacaoCpf">O
+            CPF é inválido</mat-error>
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
           <label>Profissão *
