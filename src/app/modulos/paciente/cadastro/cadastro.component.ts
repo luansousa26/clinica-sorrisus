@@ -6,7 +6,7 @@ import { DadosClinicosModel } from '../models/dados-clinicos.model';
 import { MatSnackBar } from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ValidacaoCPF } from '../../../shared/validacoes/validacao-cpf';
+import { ValidacaoCPF, ValidacaoTipos } from '../../../shared/index';
 @Component({
     selector: 'app-cadastro',
     templateUrl: './cadastro.component.html',
@@ -37,7 +37,11 @@ export class CadastroComponent implements OnInit {
     }
 
     marcararCpf(tecla: KeyboardEvent) {
-        this.paciente.cpf = ValidacaoCPF.inclurMascara(this.paciente.cpf);
+        if  (ValidacaoTipos.validacaoApenasNumeros(tecla.key)) {
+            this.paciente.cpf = ValidacaoCPF.inclurMascara(this.paciente.cpf);
+        } else {
+            return false;
+        }
     }
 
     salvarDados() {
