@@ -37,7 +37,7 @@
           <label>
             CPF *
           </label>
-          <input type="text" [(ngModel)]="paciente.cpf" maxlength="11" name="cpf" (focusout)="validarCpf(paciente.cpf)" placeholder="03719120088"
+          <input type="text" [(ngModel)]="paciente.cpf" maxlength="11" name="cpf" (focusout)="validarCpf(paciente.cpf)" placeholder="037.191.200-88"
             pattern="[0-9]{11}|[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" class="form-control" required>
           <mat-error *ngIf="paciente.cpf && !situacaoCpf">O CPF é inválido</mat-error>
         </div>
@@ -55,38 +55,36 @@
       <hr>
       <div class="row">
         <div class="col-md-4 col-sm-12 espaco-entrecampos">
-          <label>Telefone Residencial
-            <input type="text" [(ngModel)]="paciente.telefoneResidencial" name="telefoneResidencial" placeholder="(11)4002-8922" class="form-control">
-          </label>
+          <label>Telefone Residencial</label>
+          <input type="text" [(ngModel)]="paciente.telefoneResidencial" name="telefoneResidencial" placeholder="(11)4002-8922" class="form-control">
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
-          <label>Celular
-            <input type="text" [(ngModel)]="paciente.celular" name="celular" placeholder="(11) 94002-8922" class="form-control">
-          </label>
+          <label>Celular </label>
+          <input type="text" [(ngModel)]="paciente.celular" name="celular" placeholder="(11) 94002-8922" class="form-control">
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
-          <label>E-mail
-            <input type="text" [(ngModel)]="paciente.email" name="email" placeholder="luan26@uninove.edu.br" class="form-control">
-          </label>
+          <label>E-mail </label>
+          <input type="text" [(ngModel)]="paciente.email" name="email" placeholder="luan26@uninove.edu.br" class="form-control">
         </div>
-      </div>
-      <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
-        <label>
-          CEP *
-          <input type="text" [(ngModel)]="paciente.endereco.cep" #cep="ngModel" name="cep" (focusout)="verificarCep()" placeholder="CEP"
-            maxlength="9" pattern="[0-9]{8}|[0-9]{5}-[0-9]{3}" class="form-control" required>
-          <mat-error *ngIf="cep.invalid">O CEP é inválido</mat-error>
-        </label>
-        <label>Logradouro
-          <input type="text" [(ngModel)]="paciente.endereco.logradouro" name="logradouro" class="form-control input-nome" disabled>
-        </label>
       </div>
       <div class="row">
-        <div class="col-md-2 col-sm-12 espaco-entrecampos" align="left">
-          <label>Número
-            <input type="text" [(ngModel)]="paciente.endereco.numero" placeholder="220A" name="numero" class="form-control">
-          </label>
+        <div class="col-md-3 col-sm-5 espaco-entrecampos" align="left">
+          <label>CEP * </label>
+          <input type="text" [(ngModel)]="paciente.endereco.cep" #cep="ngModel" name="cep" (focusout)="verificarCep()" placeholder="CEP"
+            maxlength="9" pattern="[0-9]{8}|[0-9]{5}-[0-9]{3}" class="form-control" required>
+          <mat-error *ngIf="paciente.endereco.cep && cep.invalid">O CEP é inválido</mat-error>
         </div>
+        <div class="col-md-7 col-sm-12  espaco-entrecampos">
+          <label>Logradouro</label>
+          <input type="text" [(ngModel)]="paciente.endereco.logradouro" name="logradouro" class="form-control" disabled>
+        </div>
+        <div class="col-md-2 col-sm-4" align="left">
+          <label>Número</label>
+          <input type="text" [(ngModel)]="paciente.endereco.numero" placeholder="220A" name="numero" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
           <label>Bairro
             <input type="text" [(ngModel)]="paciente.endereco.bairro" name="bairro" class="form-control" disabled>
