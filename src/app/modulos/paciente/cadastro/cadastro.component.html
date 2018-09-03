@@ -120,18 +120,18 @@
         </div>
         <div class="col-md-2 col-sm-4 espaco-entrecampos" align="left">
           <div>
-            <label>Sensibilidade a algum medicamento? </label>
-            <mat-radio-group>
-              <mat-radio-button id="flagSensibilidadeSim" #flagSensibilidadeSim (click)="verificaFlags(flagSensibilidadeSim)" value="S">Sim</mat-radio-button><br/>
-              <mat-radio-button id="flagSensibilidadeNao" #flagSensibilidadeNao (click)="verificaFlags(flagSensibilidadeNao)" value="N">Não</mat-radio-button>
-            </mat-radio-group>
+            <label>Sensibilidade a algum medicamento? </label><br/>
+            <mat-button-toggle-group>
+              <mat-button-toggle id="flagSensibilidadeSim" #flagSensibilidadeSim (click)="verificaFlags(flagSensibilidadeSim)" value="S">Sim</mat-button-toggle>
+              <mat-button-toggle id="flagSensibilidadeNao" #flagSensibilidadeNao (click)="verificaFlags(flagSensibilidadeNao)" value="N">Não</mat-button-toggle>
+            </mat-button-toggle-group>
           </div>
         </div>
         <div class="col-md-4 col-sm-5 espaco-entrecampos" align="left">
           <div>
             <label>Qual(ais)? </label>
-              <input [disabled]="!flagSensibilidadeSim._checked" [(ngModel)]="paciente.dadosClinicos.sensibilidade" name="sensibilidade"
-                type="text" class="form-control">
+            <input [disabled]="!flagSensibilidadeSim._checked" [(ngModel)]="paciente.dadosClinicos.sensibilidade" name="sensibilidade"
+              type="text" class="form-control">
           </div>
         </div>
       </div>
@@ -140,18 +140,18 @@
           <div>
             <label>Sua pressão sanguínea é alta?</label><br/>
             <mat-button-toggle-group>
-                <mat-button-toggle id="flagPressaoSim" #flagPressaoSim (click)="verificaFlags(flagPressaoSim)" value="S">Sim</mat-button-toggle>
-                <mat-button-toggle id="flagPressaoNao" #flagPressaoNao (click)="verificaFlags(flagPressaoNao)">Não</mat-button-toggle>
-              </mat-button-toggle-group>
+              <mat-button-toggle id="flagPressaoSim" #flagPressaoSim (click)="verificaFlags(flagPressaoSim)" value="S">Sim</mat-button-toggle>
+              <mat-button-toggle id="flagPressaoNao" #flagPressaoNao (click)="verificaFlags(flagPressaoNao)" value="N">Não</mat-button-toggle>
+            </mat-button-toggle-group>
           </div>
         </div>
         <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
           <div>
             <label>Está tomando algum medicamento? </label><br/>
             <mat-button-toggle-group>
-                <mat-button-toggle id="flagMedicamentoSim" #flagMedicamentoSim (click)="verificaFlags(flagMedicamentoSim)" value="S">Sim</mat-button-toggle>
-                <mat-button-toggle id="flagMedicamentoNao" #flagMedicamentoNao (click)="verificaFlags(flagMedicamentoNao)" value="N">Não</mat-button-toggle>
-              </mat-button-toggle-group>
+              <mat-button-toggle id="flagMedicamentoSim" #flagMedicamentoSim (click)="verificaFlags(flagMedicamentoSim)" value="S">Sim</mat-button-toggle>
+              <mat-button-toggle id="flagMedicamentoNao" #flagMedicamentoNao (click)="verificaFlags(flagMedicamentoNao)" value="N">Não</mat-button-toggle>
+            </mat-button-toggle-group>
           </div>
         </div>
         <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
@@ -162,25 +162,28 @@
           </div>
         </div>
       </div>
-    <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
-      <label>
-        Tem algum problema de saúde?<br/>
-        <mat-radio-group>
-          <mat-radio-button id="flagProblemaSim" #flagProblemaSim (click)="verificaFlags(flagProblemaSim)" value="S">Sim</mat-radio-button><br/>
-          <mat-radio-button id="flagProblemaNao" #flagProblemaNao (click)="verificaFlags(flagProblemaNao)" value="N">Não</mat-radio-button>
-        </mat-radio-group>
-      </label>
+      <div class="row">
+        <div class="col-md-2 col-sm-4 espaco-entrecampos" align="left">
+          <div>
+            <label>Tem algum problema de saúde?</label><br/>
+            <mat-button-toggle-group>
+              <mat-button-toggle id="flagProblemaSim" #flagProblemaSim (click)="verificaFlags(flagProblemaSim)" value="S">Sim</mat-button-toggle>
+              <mat-button-toggle id="flagProblemaNao" #flagProblemaNao (click)="verificaFlags(flagProblemaNao)" value="N">Não</mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
+          <div>
+            <label>Qual(ais)? </label>
+            <input [disabled]="!flagProblemaSim._checked" type="text" [(ngModel)]="paciente.dadosClinicos.problemaSaude" name="problemaSaude"
+              class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 espaco-entrecampos">
+        <button type="button" [disabled]="cadastroForm.invalid" (click)="salvarDados()" class="btn btn-success btn-block">Salvar</button>
+      </div>
+      <br/>
     </div>
-    <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
-      <label>Qual(ais)?
-        <input [disabled]="!flagProblemaSim._checked" type="text" [(ngModel)]="paciente.dadosClinicos.problemaSaude" name="problemaSaude"
-          class="form-control">
-      </label>
-    </div>
-    <div class="col-md-4 col-sm-12 espaco-entrecampos">
-      <button type="button" [disabled]="cadastroForm.invalid" (click)="salvarDados()" class="btn btn-success btn-block">Salvar</button>
-    </div>
-    <br/>
-  </div>
   </div>
 </form>
