@@ -9,8 +9,8 @@ export class PacienteModel {
     profissao?: string;
     endereco?: EnderecoModel;
     dadosClinicos?: DadosClinicosModel;
-    telefoneResidencial: any;
-    celular?: any;
+    telefoneResidencial: string;
+    celular?: string;
     email?: any;
 }
 
