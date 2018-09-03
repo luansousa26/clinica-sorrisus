@@ -2,8 +2,8 @@ import { EnumTipos } from '../enums/enum-tipos';
 
 export class ValidacaoTipos {
 
-    public static validarApenasNumeros(texto: string): boolean {
-        return new RegExp(EnumTipos.NUMERICO).test(texto);
+    public static validarApenasNumeros(tecla: string): boolean {
+        return new RegExp(EnumTipos.NUMERICO).test(tecla);
     }
 
     public static validarApenasLetrasEspaco(tecla: KeyboardEvent): boolean {
@@ -12,10 +12,13 @@ export class ValidacaoTipos {
 
 
 
-
+    /* Validação de telefones:
+        1. Fixo.
+        2. Celular.
+    */
 
     public static validarMascaraTelefoneFixo(telefone: string): string {
-        if (telefone) {
+             if (telefone) {
             switch (telefone.length) {
                 case 1:
                     telefone = `(${telefone}`;
@@ -29,7 +32,7 @@ export class ValidacaoTipos {
         }
         return telefone;
     }
-    public static validarMascaraTelefoneCelular(telefone: string): string {
+    public static validarMascaraTelefoneCelular(telefone: string, tecla: KeyboardEvent): string {
         if (telefone) {
             switch (telefone.length) {
                 case 1:
@@ -64,7 +67,8 @@ export class ValidacaoTipos {
         return telefone;
     }
 
+
     public static validarEmail(email: string): string {
-       return new RegExp(EnumTipos.EMAIL).test(email) ? email : null;
+        return new RegExp(EnumTipos.EMAIL).test(email) ? email : null;
     }
 }

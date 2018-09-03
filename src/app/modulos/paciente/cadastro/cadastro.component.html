@@ -37,7 +37,7 @@
           <label>
             CPF *
           </label>
-          <input type="text" [(ngModel)]="paciente.cpf" minlength="14" maxlength="14" name="cpf" (keypress)="marcararCpf($event)" (onfocus)="focusoutCpf = false;" (focusout)="validarCpf();controlaFocoCpf = true;"
+          <input type="text" [(ngModel)]="paciente.cpf" minlength="14" maxlength="14" name="cpf" (keypress)="mascararCpf($event)" (onfocus)="focusoutCpf = false;" (focusout)="validarCpf();controlaFocoCpf = true;"
             placeholder="037.191.200-88" pattern="^[0-9]*$" class="form-control" required>
           <mat-error *ngIf="controlaFocoCpf && !situacaoCpf">O
             CPF é inválido</mat-error>
@@ -57,11 +57,11 @@
       <div class="row">
         <div class="col-md-4 col-sm-12 espaco-entrecampos">
           <label>Telefone Residencial *</label>
-          <input type="text" [(ngModel)]="paciente.telefoneResidencial" (keypress)="paciente.telefoneResidencial = validacoes.validarMascaraTelefoneFixo(paciente.telefoneResidencial)" (focusout)="paciente.telefoneResidencial = validacoes.validarCampoTelefone(paciente.telefoneResidencial, 'F')" minlength="13" maxlength="13" name="telefoneResidencial" placeholder="(11)4002-8922" class="form-control" required>
+          <input type="text" [(ngModel)]="paciente.telefoneResidencial" (keypress)="validarTelefone($event,'F')" maxlength="13" name="telefoneResidencial" placeholder="(11)4002-8922" class="form-control" required>
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
           <label>Celular </label>
-          <input type="text" [(ngModel)]="paciente.celular" name="celular" (keypress)="paciente.celular = validacoes.validarMascaraTelefoneCelular(paciente.celular)" (focusout)="paciente.celular = validacoes.validarCampoTelefone(paciente.celular, 'C')" minlength="14" maxlength="14" placeholder="(11) 94002-8922" class="form-control">
+          <input type="text" [(ngModel)]="paciente.celular" name="celular" (keypress)="validarTelefone($event,'C')" (focusout)="paciente.celular = validacoes.validarCampoTelefone(paciente.celular, 'C')" maxlength="14" placeholder="(11) 94002-8922" class="form-control">
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
           <label>E-mail * </label>

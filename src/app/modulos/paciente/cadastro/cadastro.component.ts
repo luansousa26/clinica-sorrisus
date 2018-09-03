@@ -36,8 +36,8 @@ export class CadastroComponent implements OnInit {
         this.situacaoCpf = ValidacaoCPF.validarCpf(this.paciente.cpf);
     }
 
-    marcararCpf(tecla: KeyboardEvent) {
-        if  (ValidacaoTipos.validarApenasNumeros(tecla.key)) {
+    mascararCpf(tecla: KeyboardEvent) {
+        if (ValidacaoTipos.validarApenasNumeros(tecla.key)) {
             this.paciente.cpf = ValidacaoCPF.inclurMascara(this.paciente.cpf);
         } else {
             return false;
@@ -106,6 +106,22 @@ export class CadastroComponent implements OnInit {
             case 'flagFeminino':
                 this.paciente.sexo = 'F';
                 break;
+        }
+    }
+
+
+    validarTelefone(tecla: KeyboardEvent, tipoTelefone: string) {
+        if (ValidacaoTipos.validarApenasNumeros(tecla.key)) {
+            switch (tipoTelefone) {
+                case 'F':
+                    this.paciente.telefoneResidencial = this.validacoes.validarMascaraTelefoneFixo(this.paciente.telefoneResidencial);
+                    break;
+                case 'C':
+                    this.paciente.celular = this.validacoes.validarMascaraTelefoneFixo(this.paciente.celular);
+                    break;
+            }
+        } else {
+            return false;
         }
     }
 }
