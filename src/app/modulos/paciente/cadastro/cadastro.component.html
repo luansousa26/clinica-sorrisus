@@ -11,7 +11,7 @@
         <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
           <div id="campo-nome">
             <label>Nome Completo *</label>
-            <input type="text" placeholder="Luan Sousa" [(ngModel)]="paciente.nomeCompleto" name="nomeCompleto" class="form-control"
+            <input type="text" placeholder="Luan Sousa" [(ngModel)]="paciente.nomeCompleto" (keypress)="validacoes.validacaoApenasLetrasEspaco($event)" name="nomeCompleto" class="form-control"
               required>
           </div>
         </div>
@@ -45,7 +45,7 @@
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
           <label>Profissão *
           </label>
-          <input type="text" placeholder="Desenvolvedor" [(ngModel)]="paciente.profissao" name="profissao" class="form-control" required>
+          <input type="text" placeholder="Desenvolvedor" (keypress)="validacoes.validacaoApenasLetrasEspaco($event)" [(ngModel)]="paciente.profissao" name="profissao" class="form-control" required>
 
         </div>
       </div>

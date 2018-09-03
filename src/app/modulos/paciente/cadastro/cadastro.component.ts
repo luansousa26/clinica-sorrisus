@@ -13,7 +13,7 @@ import { ValidacaoCPF, ValidacaoTipos } from '../../../shared/index';
     styleUrls: ['cadastro.scss']
 })
 export class CadastroComponent implements OnInit {
-
+    validacoes = ValidacaoTipos;
     paciente: PacienteModel;
     retorno: any;
     postRetorno: any;
