@@ -37,7 +37,7 @@ export class CadastroComponent implements OnInit {
     }
 
     marcararCpf(tecla: KeyboardEvent) {
-        if  (ValidacaoTipos.validacaoApenasNumeros(tecla.key)) {
+        if  (ValidacaoTipos.validarApenasNumeros(tecla.key)) {
             this.paciente.cpf = ValidacaoCPF.inclurMascara(this.paciente.cpf);
         } else {
             return false;
