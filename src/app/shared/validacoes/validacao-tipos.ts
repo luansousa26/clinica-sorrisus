@@ -10,7 +10,7 @@ export class ValidacaoTipos {
         return new RegExp(EnumTipos.LETRAS_E_ESPACO).test(tecla.key);
     }
 
-    public static validarMascaraTelefoneFixo(telefone: string) {
+    public static validarMascaraTelefoneFixo(telefone: string): string {
         if  (telefone) {
             switch  (telefone.length) {
                 case 1:
@@ -23,8 +23,9 @@ export class ValidacaoTipos {
                 telefone = `${telefone}-`;
             }
         }
+        return telefone;
     }
-    public static validarMascaraTelefoneCelular(telefone: string) {
+    public static validarMascaraTelefoneCelular(telefone: string): string {
         if  (telefone) {
             switch  (telefone.length) {
                 case 1:
@@ -37,5 +38,6 @@ export class ValidacaoTipos {
                 telefone = `${telefone}-`;
             }
         }
+        return telefone;
     }
 }
