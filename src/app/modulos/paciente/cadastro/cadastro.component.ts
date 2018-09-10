@@ -20,6 +20,7 @@ export class CadastroComponent implements OnInit {
     flagMedicamento: boolean;
     situacaoCpf: boolean;
     focusoutCpf: boolean;
+    botao = 'Salvar';
 
     @Input('pacienteAtualizacao') pacienteAtualizacao: PacienteModel;
 
@@ -34,8 +35,9 @@ export class CadastroComponent implements OnInit {
     }
 
     ngOnInit() {
-        if  (this.pacienteAtualizacao) {
+        if (this.pacienteAtualizacao) {
             this.paciente = this.pacienteAtualizacao;
+            this.botao = 'Atualizar';
         }
     }
 

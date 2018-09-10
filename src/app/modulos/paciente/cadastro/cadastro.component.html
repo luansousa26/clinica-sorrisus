@@ -11,8 +11,8 @@
         <div class="col-md-8 col-sm-12 espaco-entrecampos" align="left">
           <div id="campo-nome">
             <label>Nome Completo *</label>
-            <input type="text" placeholder="Luan Sousa" [(ngModel)]="paciente.nomeCompleto" (keypress)="validacoes.validarApenasLetrasEspaco($event)" name="nomeCompleto" class="form-control"
-              required>
+            <input type="text" placeholder="Luan Sousa" [(ngModel)]="paciente.nomeCompleto" (keypress)="validacoes.validarApenasLetrasEspaco($event)"
+              name="nomeCompleto" class="form-control" required>
           </div>
         </div>
         <div class="col-md-4 col-sm-4 espaco-entrecampos" align="left">
@@ -37,15 +37,16 @@
           <label>
             CPF *
           </label>
-          <input type="text" [(ngModel)]="paciente.cpf" minlength="14" maxlength="14" name="cpf" (keypress)="mascararCpf($event)" (onfocus)="focusoutCpf = false;" (focusout)="validarCpf();focusoutCpf = true;"
-            placeholder="037.191.200-88" pattern="^[0-9]*$" class="form-control" required>
-          <mat-error *ngIf="focusoutCpf && !situacaoCpf">O
-            CPF é inválido</mat-error>
+          <input type="text" [(ngModel)]="paciente.cpf" minlength="14" maxlength="14" name="cpf" (keypress)="mascararCpf($event)" (onfocus)="focusoutCpf = false;"
+            (focusout)="validarCpf();focusoutCpf = true;" placeholder="037.191.200-88" pattern="^[0-9]*$" class="form-control"
+            required>
+          <mat-error *ngIf="focusoutCpf && !situacaoCpf">O CPF é inválido</mat-error>
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
           <label>Profissão *
           </label>
-          <input type="text" placeholder="Desenvolvedor" (keypress)="validacoes.validarApenasLetrasEspaco($event)" [(ngModel)]="paciente.profissao" name="profissao" class="form-control" required>
+          <input type="text" placeholder="Desenvolvedor" (keypress)="validacoes.validarApenasLetrasEspaco($event)" [(ngModel)]="paciente.profissao"
+            name="profissao" class="form-control" required>
 
         </div>
       </div>
@@ -57,15 +58,18 @@
       <div class="row">
         <div class="col-md-4 col-sm-12 espaco-entrecampos">
           <label>Telefone Residencial *</label>
-          <input type="text" [(ngModel)]="paciente.telefoneResidencial" (keypress)="validarTelefone($event,'F')" maxlength="13" name="telefoneResidencial" placeholder="(11)4002-8922" class="form-control" required>
+          <input type="text" [(ngModel)]="paciente.telefoneResidencial" (keypress)="validarTelefone($event,'F')" maxlength="13" name="telefoneResidencial"
+            placeholder="(11)4002-8922" class="form-control" required>
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
           <label>Celular </label>
-          <input type="text" [(ngModel)]="paciente.celular" name="celular" (keypress)="validarTelefone($event,'C')" (focusout)="paciente.celular = validacoes.validarCampoTelefone(paciente.celular, 'C')" maxlength="14" placeholder="(11) 94002-8922" class="form-control">
+          <input type="text" [(ngModel)]="paciente.celular" name="celular" (keypress)="validarTelefone($event,'C')" (focusout)="paciente.celular = validacoes.validarCampoTelefone(paciente.celular, 'C')"
+            maxlength="14" placeholder="(11) 94002-8922" class="form-control">
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
           <label>E-mail * </label>
-          <input type="text" [(ngModel)]="paciente.email" name="email" placeholder="luan2850@gmail.com" (focusout)="paciente.email = validacoes.validarEmail(paciente.email)" class="form-control" required>
+          <input type="text" [(ngModel)]="paciente.email" name="email" placeholder="luan2850@gmail.com" (focusout)="paciente.email = validacoes.validarEmail(paciente.email)"
+            class="form-control" required>
         </div>
       </div>
       <div class="row">
@@ -181,8 +185,13 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-sm-12 espaco-entrecampos">
-        <button type="button" [disabled]="cadastroForm.invalid" (click)="salvarDados()" class="btn btn-success btn-block">Salvar</button>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 espaco-entrecampos">
+          <button type="button" [disabled]="cadastroForm.invalid" (click)="salvarDados()" class="btn btn-success btn-block">{{botao}}</button>
+        </div>
+        <div *ngIf="pacienteAtualizacao" class="col-md-4 col-sm-6 espaco-entrecampos">
+          <button type="button" (click)="deletarPacientes()" class="btn btn-danger btn-block">Deletar</button>
+        </div>
       </div>
       <br/>
     </div>
