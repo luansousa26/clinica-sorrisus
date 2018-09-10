@@ -32,7 +32,7 @@ export class ValidacaoTipos {
         }
         return telefone;
     }
-    public static validarMascaraTelefoneCelular(telefone: string, tecla: KeyboardEvent): string {
+    public static validarMascaraTelefoneCelular(telefone: string): string {
         if (telefone) {
             switch (telefone.length) {
                 case 1:

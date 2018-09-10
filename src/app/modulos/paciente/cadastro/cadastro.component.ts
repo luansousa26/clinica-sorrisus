@@ -150,7 +150,7 @@ export class CadastroComponent implements OnInit {
                     this.paciente.telefoneResidencial = this.validacoes.validarMascaraTelefoneFixo(this.paciente.telefoneResidencial);
                     break;
                 case 'C':
-                    this.paciente.celular = this.validacoes.validarMascaraTelefoneFixo(this.paciente.celular);
+                    this.paciente.celular = this.validacoes.validarMascaraTelefoneCelular(this.paciente.celular);
                     break;
             }
         } else {

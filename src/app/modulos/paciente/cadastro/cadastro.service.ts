@@ -16,6 +16,7 @@ import {
 import {
   PacienteModel
 } from './../models/paciente.model';
+import { EnderecoModel } from '../models/endereco.model';
 @Injectable()
 export class CadastroService {
 
@@ -26,17 +27,17 @@ export class CadastroService {
   private urlPost = 'https://5aef8bf15139c80014f22900.mockapi.io/clinica-sorrisus/pacientes';
   private urlUsuarios = 'https://5aef8bf15139c80014f22900.mockapi.io/clinica-sorrisus/pacientes';
 
-  savePacientes(paciente: PacienteModel): Observable<PacienteModel> {
+  public savePacientes(paciente: PacienteModel): Observable<PacienteModel> {
     return this.http.post<PacienteModel>(this.urlPost, paciente);
   }
-  getCep(cep: string) {
-    return this.http.get(`${this.urlCep}/${cep}/json/`);
+  getCep(cep: string): Observable<EnderecoModel> {
+    return this.http.get<EnderecoModel>(`${this.urlCep}/${cep}/json/`);
   }
-  getValidarCpf(cpf: string, tk: string) {
-    return this.http.get(`${this.urlCpf}/${cpf}?token=${tk}`);
+  getValidarCpf(cpf: string, tk: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.urlCpf}/${cpf}?token=${tk}`);
   }
-  updatePacientes(idUsuario, pacienteAtualizado) {
-    return this.http.put(`${this.urlUsuarios}/${idUsuario}`, pacienteAtualizado);
+  updatePacientes(idUsuario, pacienteAtualizado: PacienteModel): Observable<PacienteModel> {
+    return this.http.put<PacienteModel>(`${this.urlUsuarios}/${idUsuario}`, pacienteAtualizado);
   }
   deletePacientes(idUsuario) {
     return this.http.delete(`${this.urlUsuarios}/${idUsuario}`);

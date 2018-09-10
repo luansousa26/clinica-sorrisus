@@ -21,6 +21,7 @@ import { PesquisaService } from './modulos/paciente/pesquisa/pesquisa.service';
 import { AdministrativoComponent } from './modulos/administrativo/administrativo.component';
 import { CalendarioComponent } from './modulos/administrativo/calendario/calendario.component';
 import { GraficoComponent } from './modulos/administrativo/grafico/grafico.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { GraficoComponent } from './modulos/administrativo/grafico/grafico.compo
     PesquisaComponent,
     AdministrativoComponent,
     CalendarioComponent,
-    GraficoComponent
+    GraficoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
