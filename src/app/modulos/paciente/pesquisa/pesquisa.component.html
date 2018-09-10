@@ -28,6 +28,9 @@
   </mat-table>
 </div>
 
-<div *ngIf="visualizarSideBar" class="col-md-12 col-sm-12">
-  <app-cadastro [pacienteAtualizacao]="pacienteAtualizacao" ></app-cadastro>
+<div *ngIf="visualizarSideBar">
+  <div class="col-md-2 col-sm-6">
+    <button type="button" (click)="voltar()" class="btn btn-warning btn-block"> Voltar</button>
+  </div>
+  <app-cadastro [pacienteAtualizacao]="pacienteAtualizacao"></app-cadastro>
 </div>

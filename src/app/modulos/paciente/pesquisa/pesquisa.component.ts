@@ -57,5 +57,9 @@ export class PesquisaComponent implements OnInit {
     filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
   }
+  public voltar(): void {
+    this.pacienteAtualizacao = null;
+    this.visualizarSideBar = false;
+  }
 }
 

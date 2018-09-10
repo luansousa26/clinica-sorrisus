@@ -25,7 +25,8 @@ export class CadastroService {
   private urlCpf = 'https://geradorapp.com/api/v1/cpf/validate'; // site está fora.
   private urlPost = 'https://5aef8bf15139c80014f22900.mockapi.io/clinica-sorrisus/pacientes';
   private urlUsuarios = 'https://5aef8bf15139c80014f22900.mockapi.io/clinica-sorrisus/pacientes';
-  salvarPaciente(paciente: PacienteModel): Observable<PacienteModel> {
+
+  savePacientes(paciente: PacienteModel): Observable<PacienteModel> {
     return this.http.post<PacienteModel>(this.urlPost, paciente);
   }
   getCep(cep: string) {
@@ -34,10 +35,10 @@ export class CadastroService {
   getValidarCpf(cpf: string, tk: string) {
     return this.http.get(`${this.urlCpf}/${cpf}?token=${tk}`);
   }
-  updateUsuarios(idUsuario, pacienteAtualizado) {
+  updatePacientes(idUsuario, pacienteAtualizado) {
     return this.http.put(`${this.urlUsuarios}/${idUsuario}`, pacienteAtualizado);
   }
-  deleteUsuarios(idUsuario) {
+  deletePacientes(idUsuario) {
     return this.http.delete(`${this.urlUsuarios}/${idUsuario}`);
   }
 

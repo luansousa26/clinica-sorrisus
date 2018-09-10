@@ -57,7 +57,7 @@ export class CadastroComponent implements OnInit {
     }
 
     private criarNovo(): void {
-        this.cadastroService.salvarPaciente(this.paciente).subscribe((pacienteSalvo: PacienteModel) => {
+        this.cadastroService.savePacientes(this.paciente).subscribe((pacienteSalvo: PacienteModel) => {
             this.cadastroForm.resetForm();
             this.snackBar.open(`Paciente ${pacienteSalvo.nomeCompleto} Salvo com Sucesso!`, ':D', {
                 duration: 5000,
@@ -67,7 +67,7 @@ export class CadastroComponent implements OnInit {
     }
 
     private atualizarPaciente(): void {
-        this.cadastroService.updateUsuarios(this.paciente.id, this.paciente).subscribe((pacienteAtualizado: PacienteModel) => {
+        this.cadastroService.updatePacientes(this.paciente.id, this.paciente).subscribe((pacienteAtualizado: PacienteModel) => {
             this.cadastroForm.resetForm();
             this.snackBar.open(`Paciente ${pacienteAtualizado.nomeCompleto} Atualizado com Sucesso!`, ':D', {
                 duration: 5000,
@@ -75,8 +75,8 @@ export class CadastroComponent implements OnInit {
             this.atualizarTela();
         });
     }
-    private deletarPaciente(): void {
-        this.cadastroService.deleteUsuarios(this.paciente.id).subscribe(() => {
+    public deletarPaciente(): void {
+        this.cadastroService.deletePacientes(this.paciente.id).subscribe(() => {
             this.cadastroForm.resetForm();
             this.snackBar.open(`Paciente deletado com Sucesso!`, ':D', {
                 duration: 5000,
