@@ -16,10 +16,9 @@ const routes: Routes = [
       { path: 'inicio', component: InicialComponent, canActivate: [Guardarota] },
       { path: 'pacientes', component: PacienteComponent, canActivate: [Guardarota] },
       { path: 'administrativo', component: AdministrativoComponent, canActivate: [Guardarota]},
-      { path: 'financeiro', component: FinanceiroComponent, canActivate: [Guardarota]} 
+      { path: 'financeiro', component: FinanceiroComponent, canActivate: [Guardarota]}
     ]
   },
-  
 ];
 
 @NgModule({

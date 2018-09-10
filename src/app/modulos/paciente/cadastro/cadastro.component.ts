@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { PacienteModel } from './../models/paciente.model';
 import { EnderecoModel } from '../models/endereco.model';
 import { CadastroService } from './cadastro.service';
@@ -20,16 +20,23 @@ export class CadastroComponent implements OnInit {
     flagMedicamento: boolean;
     situacaoCpf: boolean;
     focusoutCpf: boolean;
+
+    @Input('pacienteAtualizacao') pacienteAtualizacao: PacienteModel;
+
     @ViewChild('cadastroForm') cadastroForm: NgForm;
 
     constructor(private cadastroService: CadastroService,
         public snackBar: MatSnackBar,
-        private router: Router) { }
-
-    ngOnInit() {
+        private router: Router) {
         this.paciente = new PacienteModel();
         this.paciente.endereco = new EnderecoModel();
         this.paciente.dadosClinicos = new DadosClinicosModel();
+    }
+
+    ngOnInit() {
+        if  (this.pacienteAtualizacao) {
+            this.paciente = this.pacienteAtualizacao;
+        }
     }
 
     public validarCpf(): void {

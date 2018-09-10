@@ -5,6 +5,7 @@ import { PacienteModel } from '../models/paciente.model';
 import { PacienteComponent } from '../paciente.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { CadastroService } from '../cadastro/cadastro.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pesquisa',
@@ -14,6 +15,7 @@ import { CadastroService } from '../cadastro/cadastro.service';
 export class PesquisaComponent implements OnInit {
 
   elementos: PacienteModel[] = [];
+  pacienteAtualizacao: PacienteModel;
   dataSource: any;
   arrayTemp: PacienteModel[] = [];
   visualizarSideBar: boolean;
@@ -22,39 +24,33 @@ export class PesquisaComponent implements OnInit {
   situacaoCpf: any;
   constructor(private pesquisaService: PesquisaService,
     public snackBar: MatSnackBar,
-    private cadastroService: CadastroService) {
+    private cadastroService: CadastroService,
+    private router: Router) {
+    this.pacienteAtualizacao = new PacienteModel();
   }
   ngOnInit() {
     this.getUsuarios();
   }
-  openDialog() {
 
-  }
-
-  getUsuarios() {
+  private getUsuarios(): void {
     this.arrayTemp = [];
     this.pesquisaService.getUsuarios().subscribe((usuarios: PacienteModel[]) => {
       this.elementos = usuarios;
-      for (const valores in this.elementos) {
+
+      usuarios.map((elemento) => {
         const paciente = new PacienteModel();
-        paciente.id = this.elementos[valores].id;
-        paciente.nomeCompleto = this.elementos[valores].nomeCompleto;
-        paciente.profissao = this.elementos[valores].profissao;
+        paciente.id = elemento.id;
+        paciente.nomeCompleto = elemento.nomeCompleto;
+        paciente.profissao = elemento.profissao;
         this.arrayTemp.push(paciente);
-      }
+      });
       this.dataSource = new MatTableDataSource(this.arrayTemp);
     });
   }
 
-  linhaSelecionada(linha) {
-    for (const paciente in this.elementos) {
-      if (Object.is(this.elementos[paciente].id, linha.id)) {
-        this.paciente = this.elementos[paciente];
-        this.situacaoCpf = true;
-        this.visualizarSideBar = true;
-        break;
-      }
-    }
+  linhaSelecionada(linhaSelecionada: PacienteModel) {
+    this.pacienteAtualizacao = this.elementos.find((paciente) => paciente.id === linhaSelecionada.id);
+    this.visualizarSideBar = true;
   }
 
 
