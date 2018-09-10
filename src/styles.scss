@@ -28,3 +28,34 @@ body{
     background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
     color: white;
 }
+
+@-webkit-keyframes fadeInLeft{
+    from{
+      -webkit-transform:translate3d(-100%,0,0);
+      transform:translate3d(-100%,0,0);
+    }
+    to{
+      -webkit-transform:translate3d(0,0,0);
+      transform:translate3d(0,0,0);
+    }
+  }
+  .fadeInLeft{
+    -webkit-animation-name:fadeInLeft;
+    animation-name:fadeInLeft;
+    animation-duration: 2s;
+  }
+  @-webkit-keyframes fadeInUp{
+    from{
+      -webkit-transform:translate3d(0,100%,0);
+      transform:translate3d(0,100%,0)}
+    to{
+      -webkit-transform:translate3d(0,0,0);
+      transform:translate3d(0,0,0)}
+  }
+
+  .fadeInUp{
+    -webkit-animation-name:fadeInUp;
+    animation-name:fadeInUp;
+    animation-duration: 2s;
+  }
+  
