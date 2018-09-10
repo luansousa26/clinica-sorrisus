@@ -37,9 +37,9 @@
           <label>
             CPF *
           </label>
-          <input type="text" [(ngModel)]="paciente.cpf" minlength="14" maxlength="14" name="cpf" (keypress)="mascararCpf($event)" (onfocus)="focusoutCpf = false;" (focusout)="validarCpf();controlaFocoCpf = true;"
+          <input type="text" [(ngModel)]="paciente.cpf" minlength="14" maxlength="14" name="cpf" (keypress)="mascararCpf($event)" (onfocus)="focusoutCpf = false;" (focusout)="validarCpf();focusoutCpf = true;"
             placeholder="037.191.200-88" pattern="^[0-9]*$" class="form-control" required>
-          <mat-error *ngIf="controlaFocoCpf && !situacaoCpf">O
+          <mat-error *ngIf="focusoutCpf && !situacaoCpf">O
             CPF é inválido</mat-error>
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
@@ -65,7 +65,7 @@
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
           <label>E-mail * </label>
-          <input type="text" [(ngModel)]="paciente.email" name="email" placeholder="luan26@uninove.edu.br" (focusout)="paciente.email = validacoes.validarEmail(paciente.email)" class="form-control" required>
+          <input type="text" [(ngModel)]="paciente.email" name="email" placeholder="luan2850@gmail.com" (focusout)="paciente.email = validacoes.validarEmail(paciente.email)" class="form-control" required>
         </div>
       </div>
       <div class="row">

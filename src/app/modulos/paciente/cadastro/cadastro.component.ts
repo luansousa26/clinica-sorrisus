@@ -32,11 +32,11 @@ export class CadastroComponent implements OnInit {
         this.paciente.dadosClinicos = new DadosClinicosModel();
     }
 
-    validarCpf(): void {
+    public validarCpf(): void {
         this.situacaoCpf = ValidacaoCPF.validarCpf(this.paciente.cpf);
     }
 
-    mascararCpf(tecla: KeyboardEvent) {
+    public mascararCpf(tecla: KeyboardEvent): boolean {
         if (ValidacaoTipos.validarApenasNumeros(tecla.key)) {
             this.paciente.cpf = ValidacaoCPF.inclurMascara(this.paciente.cpf);
         } else {
@@ -44,7 +44,7 @@ export class CadastroComponent implements OnInit {
         }
     }
 
-    salvarDados() {
+    public salvarDados(): void {
         this.cadastroService.salvarPaciente(this.paciente).subscribe(resposta => {
             this.postRetorno = resposta;
             this.cadastroForm.resetForm();
@@ -57,7 +57,7 @@ export class CadastroComponent implements OnInit {
             }, 100);
         });
     }
-    verificarCep() {
+    public verificarCep(): void {
         if (this.paciente.endereco.cep !== undefined) {
             if (this.paciente.endereco.cep.includes('-')) {
                 const cepV = /\-/gi;
@@ -72,9 +72,8 @@ export class CadastroComponent implements OnInit {
             }
         }
     }
-    verificarCpf() {
-    }
-    verificaFlags(flag) {
+
+    public verificaFlags(flag): void {
         switch (flag.id) {
             case 'flagMedicamentoSim':
                 this.paciente.dadosClinicos.flagMedicamento = 'S';
@@ -110,7 +109,7 @@ export class CadastroComponent implements OnInit {
     }
 
 
-    validarTelefone(tecla: KeyboardEvent, tipoTelefone: string) {
+    public validarTelefone(tecla: KeyboardEvent, tipoTelefone: string): boolean {
         if (ValidacaoTipos.validarApenasNumeros(tecla.key)) {
             switch (tipoTelefone) {
                 case 'F':
