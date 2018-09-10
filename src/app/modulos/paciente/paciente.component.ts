@@ -6,7 +6,6 @@
     styleUrls: ['paciente.scss']
   })
   export class PacienteComponent implements OnInit {
-    
 
     constructor() { }
 

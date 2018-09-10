@@ -37,7 +37,7 @@
           <label>
             CPF *
           </label>
-          <input type="text" [(ngModel)]="paciente.cpf" minlength="14" maxlength="14" name="cpf" (keypress)="mascararCpf($event)" (onfocus)="focusoutCpf = false;"
+          <input type="text" [(ngModel)]="paciente.cpf" minlength="11" maxlength="14" name="cpf" (keypress)="mascararCpf($event)" (onfocus)="focusoutCpf = false;"
             (focusout)="validarCpf();focusoutCpf = true;" placeholder="037.191.200-88" pattern="^[0-9]*$" class="form-control"
             required>
           <mat-error *ngIf="focusoutCpf && !situacaoCpf">O CPF é inválido</mat-error>
@@ -190,7 +190,7 @@
           <button type="button" [disabled]="cadastroForm.invalid" (click)="salvarDados()" class="btn btn-success btn-block">{{botao}}</button>
         </div>
         <div *ngIf="pacienteAtualizacao" class="col-md-4 col-sm-6 espaco-entrecampos">
-          <button type="button" (click)="deletarPacientes()" class="btn btn-danger btn-block">Deletar</button>
+          <button type="button" (click)="deletarPaciente()" class="btn btn-danger btn-block">Deletar</button>
         </div>
       </div>
       <br/>

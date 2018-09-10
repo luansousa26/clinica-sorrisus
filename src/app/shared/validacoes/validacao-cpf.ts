@@ -2,7 +2,7 @@ export class ValidacaoCPF {
 
     public static validarCpf(cpf: String): boolean {
 
-        if (cpf && cpf.length === 14) {
+        if (cpf && cpf.length === 14 || cpf && cpf.length === 11) {
             let soma = 0;
             let resto;
 

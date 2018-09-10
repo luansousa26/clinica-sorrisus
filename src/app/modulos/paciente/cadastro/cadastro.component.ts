@@ -16,7 +16,6 @@ export class CadastroComponent implements OnInit {
     validacoes = ValidacaoTipos;
     paciente: PacienteModel;
     retorno: any;
-    postRetorno: any;
     flagMedicamento: boolean;
     situacaoCpf: boolean;
     focusoutCpf: boolean;
@@ -54,17 +53,43 @@ export class CadastroComponent implements OnInit {
     }
 
     public salvarDados(): void {
-        this.cadastroService.salvarPaciente(this.paciente).subscribe(resposta => {
-            this.postRetorno = resposta;
+        this.pacienteAtualizacao ? this.atualizarPaciente() : this.criarNovo();
+    }
+
+    private criarNovo(): void {
+        this.cadastroService.salvarPaciente(this.paciente).subscribe((pacienteSalvo: PacienteModel) => {
             this.cadastroForm.resetForm();
-            this.snackBar.open('Paciente Salvo com Sucesso!', ':D', {
+            this.snackBar.open(`Paciente ${pacienteSalvo.nomeCompleto} Salvo com Sucesso!`, ':D', {
                 duration: 5000,
             });
-            this.router.navigate(['/home']);
-            setTimeout(() => {
-                this.router.navigate(['home/pacientes']);
-            }, 100);
+            this.atualizarTela();
         });
+    }
+
+    private atualizarPaciente(): void {
+        this.cadastroService.updateUsuarios(this.paciente.id, this.paciente).subscribe((pacienteAtualizado: PacienteModel) => {
+            this.cadastroForm.resetForm();
+            this.snackBar.open(`Paciente ${pacienteAtualizado.nomeCompleto} Atualizado com Sucesso!`, ':D', {
+                duration: 5000,
+            });
+            this.atualizarTela();
+        });
+    }
+    private deletarPaciente(): void {
+        this.cadastroService.deleteUsuarios(this.paciente.id).subscribe(() => {
+            this.cadastroForm.resetForm();
+            this.snackBar.open(`Paciente deletado com Sucesso!`, ':D', {
+                duration: 5000,
+            });
+            this.atualizarTela();
+        });
+    }
+
+    private atualizarTela(): void {
+        this.router.navigate(['/home']);
+        setTimeout(() => {
+            this.router.navigate(['home/pacientes']);
+        }, 100);
     }
     public verificarCep(): void {
         if (this.paciente.endereco.cep !== undefined) {
