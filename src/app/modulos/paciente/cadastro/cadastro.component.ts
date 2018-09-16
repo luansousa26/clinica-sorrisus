@@ -34,6 +34,10 @@ export class CadastroComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.verificaAcao();
+    }
+
+    private verificaAcao(): void {
         if (this.pacienteAtualizacao) {
             this.paciente = this.pacienteAtualizacao;
             this.botao = 'Atualizar';
@@ -106,42 +110,6 @@ export class CadastroComponent implements OnInit {
             }
         }
     }
-
-    public verificaFlags(flag): void {
-        switch (flag.id) {
-            case 'flagMedicamentoSim':
-                this.paciente.dadosClinicos.flagMedicamento = 'S';
-                break;
-            case 'flagMedicamentoNao':
-                this.paciente.dadosClinicos.flagMedicamento = 'N';
-                break;
-            case 'flagProblemaSim':
-                this.paciente.dadosClinicos.flagProblemaSaude = 'S';
-                break;
-            case 'flagProblemaNao':
-                this.paciente.dadosClinicos.flagProblemaSaude = 'N';
-                break;
-            case 'flagPressaoSim':
-                this.paciente.dadosClinicos.flagPressao = 'S';
-                break;
-            case 'flagPressaoNao':
-                this.paciente.dadosClinicos.flagPressao = 'N';
-                break;
-            case 'flagSensibilidadeSim':
-                this.paciente.dadosClinicos.flagSensibilidade = 'S';
-                break;
-            case 'flagSensibilidadeNao':
-                this.paciente.dadosClinicos.flagSensibilidade = 'N';
-                break;
-            case 'flagMasculino':
-                this.paciente.sexo = 'M';
-                break;
-            case 'flagFeminino':
-                this.paciente.sexo = 'F';
-                break;
-        }
-    }
-
 
     public validarTelefone(tecla: KeyboardEvent, tipoTelefone: string): boolean {
         if (ValidacaoTipos.validarApenasNumeros(tecla.key)) {
