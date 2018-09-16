@@ -29,8 +29,8 @@
             Sexo *
           </label><br/>
           <mat-button-toggle-group [(ngModel)]="paciente.sexo" name="sexo">
-            <mat-button-toggle #flagMasculino (click)="verificaFlags(flagMasculino)" value="M">Masculino</mat-button-toggle>
-            <mat-button-toggle #flagFeminino (click)="verificaFlags(flagFeminino)" value="F">Feminino</mat-button-toggle>
+            <mat-button-toggle #flagMasculino value="M">Masculino</mat-button-toggle>
+            <mat-button-toggle #flagFeminino value="F">Feminino</mat-button-toggle>
           </mat-button-toggle-group>
         </div>
         <div class="col-md-3 col-sm-5 espaco-entrecampos" align="left">
@@ -112,8 +112,10 @@
           <div>
             <label>Alergia</label>
             <section class="example-section">
-              <mat-checkbox id="antibiotico" class="example-margin">Antibiótico</mat-checkbox>
-              <mat-checkbox id="anestesico" class="example-margin">Anestésico</mat-checkbox>
+              <mat-checkbox id="antibiotico" class="example-margin" name="flagAntibiotico" [(ngModel)]="paciente.dadosClinicos.flagAntibiotico"
+                value="ANT">Antibiótico</mat-checkbox>
+              <mat-checkbox id="anestesico" class="example-margin" name="flagAnalgesico" [(ngModel)]="paciente.dadosClinicos.flagAnalgesico"
+                value="ANA">Anestésico</mat-checkbox>
             </section>
           </div>
         </div>
@@ -126,17 +128,17 @@
         <div class="col-md-2 col-sm-4 espaco-entrecampos" align="left">
           <div>
             <label>Sensibilidade a algum medicamento? </label><br/>
-            <mat-button-toggle-group>
-              <mat-button-toggle id="flagSensibilidadeSim" #flagSensibilidadeSim (click)="verificaFlags(flagSensibilidadeSim)" value="S">Sim</mat-button-toggle>
-              <mat-button-toggle id="flagSensibilidadeNao" #flagSensibilidadeNao (click)="verificaFlags(flagSensibilidadeNao)" value="N">Não</mat-button-toggle>
+            <mat-button-toggle-group [(ngModel)]="paciente.dadosClinicos.flagSensibilidade" name="flagSensibilidade">
+              <mat-button-toggle id="flagSensibilidadeSim" value="S">Sim</mat-button-toggle>
+              <mat-button-toggle id="flagSensibilidadeNao" value="N">Não</mat-button-toggle>
             </mat-button-toggle-group>
           </div>
         </div>
         <div class="col-md-4 col-sm-5 espaco-entrecampos" align="left">
           <div>
             <label>Qual(ais)? </label>
-            <input [disabled]="!flagSensibilidadeSim._checked" [(ngModel)]="paciente.dadosClinicos.sensibilidade" name="sensibilidade"
-              type="text" class="form-control">
+            <input [disabled]="paciente.dadosClinicos.flagSensibilidade === 'N' || paciente.dadosClinicos.flagSensibilidade === null"
+              [(ngModel)]="paciente.dadosClinicos.sensibilidade" name="sensibilidade" type="text" class="form-control">
           </div>
         </div>
       </div>
@@ -144,26 +146,26 @@
         <div class="col-md-3 col-sm-4 espaco-entrecampos" align="left">
           <div>
             <label>Sua pressão sanguínea é alta?</label><br/>
-            <mat-button-toggle-group>
-              <mat-button-toggle id="flagPressaoSim" #flagPressaoSim (click)="verificaFlags(flagPressaoSim)" value="S">Sim</mat-button-toggle>
-              <mat-button-toggle id="flagPressaoNao" #flagPressaoNao (click)="verificaFlags(flagPressaoNao)" value="N">Não</mat-button-toggle>
+            <mat-button-toggle-group [(ngModel)]="paciente.dadosClinicos.flagPressao" name="flagPressao">
+              <mat-button-toggle id="flagPressaoSim" value="S">Sim</mat-button-toggle>
+              <mat-button-toggle id="flagPressaoNao" value="N">Não</mat-button-toggle>
             </mat-button-toggle-group>
           </div>
         </div>
         <div class="col-md-3 col-sm-12 espaco-entrecampos" align="left">
           <div>
             <label>Está tomando algum medicamento? </label><br/>
-            <mat-button-toggle-group>
-              <mat-button-toggle id="flagMedicamentoSim" #flagMedicamentoSim (click)="verificaFlags(flagMedicamentoSim)" value="S">Sim</mat-button-toggle>
-              <mat-button-toggle id="flagMedicamentoNao" #flagMedicamentoNao (click)="verificaFlags(flagMedicamentoNao)" value="N">Não</mat-button-toggle>
+            <mat-button-toggle-group [(ngModel)]="paciente.dadosClinicos.flagMedicamento" name="flagMedicamento">
+              <mat-button-toggle id="flagMedicamentoSim" value="S">Sim</mat-button-toggle>
+              <mat-button-toggle id="flagMedicamentoNao" value="N">Não</mat-button-toggle>
             </mat-button-toggle-group>
           </div>
         </div>
         <div class="col-md-6 col-sm-12 espaco-entrecampos" align="left">
           <div>
             <label>Qual(ais)?</label>
-            <input [disabled]="!flagMedicamentoSim._checked" type="text" [(ngModel)]="paciente.dadosClinicos.medicamento" name="medicamento"
-              class="form-control">
+            <input [disabled]="paciente.dadosClinicos.flagMedicamento === 'N' || paciente.dadosClinicos.flagMedicamento === null" type="text"
+              [(ngModel)]="paciente.dadosClinicos.medicamento" name="medicamento" class="form-control">
           </div>
         </div>
       </div>
@@ -171,17 +173,17 @@
         <div class="col-md-2 col-sm-4 espaco-entrecampos" align="left">
           <div>
             <label>Tem algum problema de saúde?</label><br/>
-            <mat-button-toggle-group>
-              <mat-button-toggle id="flagProblemaSim" #flagProblemaSim (click)="verificaFlags(flagProblemaSim)" value="S">Sim</mat-button-toggle>
-              <mat-button-toggle id="flagProblemaNao" #flagProblemaNao (click)="verificaFlags(flagProblemaNao)" value="N">Não</mat-button-toggle>
+            <mat-button-toggle-group [(ngModel)]="paciente.dadosClinicos.flagProblemaSaude" name="flagProblemaSaude">
+              <mat-button-toggle id="flagProblemaSim" value="S">Sim</mat-button-toggle>
+              <mat-button-toggle id="flagProblemaNao" value="N">Não</mat-button-toggle>
             </mat-button-toggle-group>
           </div>
         </div>
         <div class="col-md-4 col-sm-12 espaco-entrecampos" align="left">
           <div>
             <label>Qual(ais)? </label>
-            <input [disabled]="!flagProblemaSim._checked" type="text" [(ngModel)]="paciente.dadosClinicos.problemaSaude" name="problemaSaude"
-              class="form-control">
+            <input [disabled]="paciente.dadosClinicos.flagProblemaSaude === 'N' || paciente.dadosClinicos.flagProblemaSaude === null"
+              type="text" [(ngModel)]="paciente.dadosClinicos.problemaSaude" name="problemaSaude" class="form-control">
           </div>
         </div>
       </div>
