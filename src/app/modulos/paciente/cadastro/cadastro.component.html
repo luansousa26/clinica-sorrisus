@@ -28,7 +28,7 @@
           <label>
             Sexo *
           </label><br/>
-          <mat-button-toggle-group>
+          <mat-button-toggle-group [(ngModel)]="paciente.sexo" name="sexo">
             <mat-button-toggle #flagMasculino (click)="verificaFlags(flagMasculino)" value="M">Masculino</mat-button-toggle>
             <mat-button-toggle #flagFeminino (click)="verificaFlags(flagFeminino)" value="F">Feminino</mat-button-toggle>
           </mat-button-toggle-group>
