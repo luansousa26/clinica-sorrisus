@@ -1,6 +1,6 @@
 # clínica-sorrisus https://luansousa26.github.io/clinica-sorrisus/  :bird:
 
-## Project in progress Angular 5 with Java 8.
+## Project in progress Angular 5 with Java 8 SPRING BOOT.
 Project in progress, for use of dental clinics.
 
 ## Login:
