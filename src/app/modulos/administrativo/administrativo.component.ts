@@ -13,7 +13,7 @@ export class AdministrativoComponent implements OnInit {
 
   ngOnInit() {
   }
-  visualizarCalendario() {
+ public visualizarCalendario(): void {
     if (this.controlaCalendario === true) {
       this.controlaCalendario = false;
     } else {
