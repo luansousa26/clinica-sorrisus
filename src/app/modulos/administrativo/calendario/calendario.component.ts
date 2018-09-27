@@ -4,7 +4,7 @@ import { Options } from 'fullcalendar';
 @Component({
   selector: 'app-calendario',
   templateUrl: './calendario.component.html',
-  styles: []
+  styleUrls: ['./calendario.scss']
 })
 export class CalendarioComponent implements OnInit {
 
@@ -17,6 +17,7 @@ export class CalendarioComponent implements OnInit {
       editable: true,
       eventLimit: false,
       locale:'pt-br',
+      eventTextColor: 'red',
       header: {
         left: 'prev,next today',
         center: 'title',
