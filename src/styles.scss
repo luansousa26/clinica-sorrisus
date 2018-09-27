@@ -18,6 +18,8 @@ body{
     background-size:cover;
     background-image: url($img);   
     background-repeat: no-repeat; 
+    height: 100%;
+    position: relative;
 }
 
 /* material button toggle */

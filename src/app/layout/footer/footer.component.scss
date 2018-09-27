@@ -1,7 +1,13 @@
 .footer{
     background: #5B349F;
     color: white;
+    bottom: 0;
 }
 a{
     color: white;
+}
+@media only screen and (max-width: 768px){
+    .footer{
+        margin-top: 157px;
+    }
 }

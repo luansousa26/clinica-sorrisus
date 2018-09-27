@@ -95,6 +95,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         Object.is(this.usuario.senha, users.senha)
       ) {
         this.permitirLogin();
+        document.getElementById('body').style.backgroundImage = 'none';
       } else {
         this.bloquearLogin();
       }
